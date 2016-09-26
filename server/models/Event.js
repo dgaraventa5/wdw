@@ -8,10 +8,10 @@ var EventSchema = new mongoose.Schema({
 	date: {type:Date},
 	time: {type:String},
 	image: {type:String},
+	public: {type:Boolean, required:true, default:true},
 	_host: {type:Schema.Types.ObjectId, ref:'User'},
 	_admins: [{type:Schema.Types.ObjectId, ref:'User'}],
-	_attendees:[{type:Schema.Types.ObjectId, ref:'User'}],
-	_items:[{type:Schema.Types.ObjectId, ref:'Item'}]
-})
+	_attendees:[{type:Schema.Types.ObjectId, ref:'User'}]
+}, {timestamps:true})
 
 mongoose.model('Event', EventSchema);
