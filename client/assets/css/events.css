@@ -106,7 +106,7 @@ h5{
 	height: 10em;
 	background-color: #e6f3ff;
 	position: relative;
-	margin-top: 1em;
+	margin-top: .5em;
 }
 #upload-photo{ 
 	border-radius: 5%;
@@ -116,6 +116,14 @@ h5{
 }
 .new-event-details{
 	margin-top: 1em;
+}
+#invite-friends-btn{
+	color: #0066ff;
+	border-color: #0066ff;
+	background-color: white;
+}
+#create-event-btn{
+	margin-top: 3em;
 }
 
 

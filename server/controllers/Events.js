@@ -30,7 +30,7 @@ module.exports = {
 				res.json(event._attendees)
 			}
 		})
-	}
+	},
 	new: function(req,res){
 		var event = {
 			name: req.body.name,

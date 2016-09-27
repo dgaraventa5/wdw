@@ -12,7 +12,7 @@ module.exports = {
 				res.json(item)
 			}
 		})
-	}
+	},
 	all: function(req,res){
 		Item.find({_event:req.params.eid}).populate('_users').exec(function(err, items){
 			if(err){

@@ -13,7 +13,7 @@ module.exports = function(app){
 	//Events Routes
 	app.get('/events', events.all)
 	app.get('/event/:id', events.show)
-	app.get('/event/attendees/:id', event.attendees)
+	app.get('/event/attendees/:id', events.attendees)
 	app.post('/event', events.new)
 	app.post('/event/:id', events.edit)
 	app.post('/event/attendees/:id', events.add_attendees)

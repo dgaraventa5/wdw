@@ -58,7 +58,7 @@ module.exports = {
 				})
 			}
 		})
-	}
+	},
 	new: function(req,res){
 		var user = {
 			facebook_token: req.body.facebook_token,
