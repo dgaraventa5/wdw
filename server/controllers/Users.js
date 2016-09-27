@@ -28,13 +28,6 @@ module.exports = {
 				res.sendStatus(500)
 			}else{
 				res.json(user._event)
-				// User.populate('user', {path:'_items._users', model:'User'}).exec(function(err, full_user){
-				// 	if(err){
-				// 		res.sendStatus(500)
-				// 	}else{
-				// 		res.json(full_user)
-				// 	}
-				// })
 			}
 		})
 	},
@@ -58,7 +51,7 @@ module.exports = {
 				})
 			}
 		})
-	}
+	},
 	new: function(req,res){
 		var user = {
 			facebook_token: req.body.facebook_token,
