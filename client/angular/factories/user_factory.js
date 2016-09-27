@@ -11,10 +11,20 @@ app.factory('userFactory', function($http){
 		})
 	}
 
-	factory.upcoming = function(callback){
+	factory.getUpcoming = function(callback){
 		$http({
 			method:"GET",
 			url:"/user/upcoming"
+		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
+	
+	factory.getUserItems = function(callback){
+		$http({
+			method:"GET",
+			url:"/user/items"
 		})
 		.then(function successCallback(res){
 			callback(res.data)
@@ -32,7 +42,7 @@ app.factory('userFactory', function($http){
 		})
 	}
 
-	factor.newUser = function(user, callback){
+	factory.newUser = function(user, callback){
 		$http({
 			method:"POST",
 			url:"/user",

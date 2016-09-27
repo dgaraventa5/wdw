@@ -21,6 +21,16 @@ app.factory('eventFactory', function($http){
 			callback(res.data)
 		})
 	}
+	factory.getAttendees = function(event_id, callback){
+		var src = "/event/attendees/"+event_id
+		$http({
+			method:"GET",
+			url:src
+		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
 
 	factory.newEvent = function(event, callback){
 		$http({

@@ -1,8 +1,19 @@
 app.factory('itemFactory', function($http){
 	var factory = {}
 
-	factory.getItems = function(event_id, callback){
-		var src = "/item/"+event_id
+	factory.getItem = function(item_id, callback){
+		var src = "/item/"+item_id
+		$http({
+			method:"GET",
+			url:src
+		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
+
+	factory.getEventItems = function(event_id, callback){
+		var src = "/items/"+event_id
 		$http({
 			method:"GET",
 			url:src

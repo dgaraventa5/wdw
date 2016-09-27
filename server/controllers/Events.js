@@ -22,6 +22,15 @@ module.exports = {
 			}
 		})
 	},
+	attendees: function(req,res){
+		Event.find({_id:req.params.id}).populate('_attendees').exec(function(err, event){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				res.json(event._attendees)
+			}
+		})
+	}
 	new: function(req,res){
 		var event = {
 			name: req.body.name,

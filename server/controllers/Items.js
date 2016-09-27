@@ -5,6 +5,15 @@ var Item = mongoose.model('Item');
 
 module.exports = {
 	show: function(req,res){
+		Item.find({_id:req.params.id}).populate('_users').populate('_event').exec(function(err, item){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				res.json(item)
+			}
+		})
+	}
+	all: function(req,res){
 		Item.find({_event:req.params.eid}).populate('_users').exec(function(err, items){
 			if(err){
 				res.sendStatus(500)
