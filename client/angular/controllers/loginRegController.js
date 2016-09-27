@@ -1,4 +1,4 @@
-app.controller('loginRegController', ['$scope', '$location', function($scope, $location){
+app.controller('loginRegController', ['$scope', '$location', 'userFactory', function($scope, $location, userFactory){
 
 	$scope.login = function(){
 
@@ -18,12 +18,16 @@ app.controller('loginRegController', ['$scope', '$location', function($scope, $l
 		// provider.addScope('read_custom_friendlists');
 		provider.addScope('public_profile');
 		
-		firebase.auth().signInWithRedirect(provider).then(function(result) {
+		firebase.auth().signInWithPopup(provider).then(function(result) {
 		  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
 		  var token = result.credential.accessToken;
 		  // The signed-in user info.
-		  var user = result.user;
-		  // ...
+		  var user = result.user.providerData[0];
+
+		  userFactory.login(user, function(){
+		  	$location.path("/events")
+		  })
+
 		}).catch(function(error) {
 		  // Handle Errors here.
 		  console.log(error);

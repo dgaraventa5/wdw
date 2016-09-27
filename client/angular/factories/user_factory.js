@@ -4,7 +4,8 @@ app.factory('userFactory', function($http){
 	factory.login = function(user, callback){
 		$http({
 			method:"POST",
-			url:"/login"
+			url:"/login",
+			data:user
 		})
 		.then(function successCallback(res){
 			callback()

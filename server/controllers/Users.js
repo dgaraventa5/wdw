@@ -5,13 +5,14 @@ var Item = mongoose.model('Item');
 
 module.exports = {
 	login: function(req,res){
-		User.findOne({fbid: req.body.fbid}, function(err, user){
-			if(err){
+		User.findOne({fbid: req.body.uid}, function(err, user){
+			if(!user){
 				var user = {
 					fbid: req.body.uid,
 					name: req.body.displayName,
 					image: req.body.photoURL
 				}
+
 				var new_user = new User(user)
 
 				new_user.save(function(err, saved_user){
@@ -47,32 +48,39 @@ module.exports = {
 		})
 	},
 	upcoming: function(req,res){
-		User.find({_id: req.session.current_user._id}).populate('_events').populate('_items').exec(function(err, user){
+		User.findOne({_id: req.session.current_user._id}).populate('_events').exec(function(err, user){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				res.json(user._event)
+				res.json(user._events)
 			}
 		})
 	},
 	items: function(req,res){
-		User.find({_id:req.session.current_user._id}).populate('_items').exec(function(err, user){
+		User.findOne({_id:req.session.current_user._id}).populate('_items').populate('_items._users').exec(function(err, user){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				User.populate('user', {path:'_items._users', model:'User'}).exec(function(err, full_user){
-					if(err){
-						res.sendStatus(500)
-					}else{
+				// User.populate(user, {path:'_items._users', model:'User'}).exec(function(err, full_user){
+				// 	console.log('here')
+				// 	if(err){
+				// 		res.sendStatus(500)
+				// 	}else{
 						Item.find({_event: {$in:user._events}}, function(err, all_items){
-							obj = {
-								user_items: full_user._items,
-								all_items: all_items
+							if(err){
+								res.sendStatus(500)
+							}else{
+								obj = {
+									user_items: user._items,
+									all_items: all_items
+								}
+								console.log(user._items)
+								console.log(all_items)
+								res.json(obj)
 							}
-							res.json(obj)
 						})
-					}
-				})
+				// 	}
+				// })
 			}
 		})
 	}

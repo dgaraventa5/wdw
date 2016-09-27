@@ -43,5 +43,5 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 			$location.path("/events")
 		})
 	}
-	
+
 }])
