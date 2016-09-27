@@ -21,6 +21,12 @@ app.config(function($routeProvider, $httpProvider){
 		templateUrl: 'partials/loginreg.html',
 		controller: 'loginRegController'
 	})
+	.when('/events',{
+		templateUrl: 'partials/users_events.html'
+	})
+	.when('/event/:id',{
+		templateUrl: 'partials/eventscreen.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

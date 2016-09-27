@@ -21,7 +21,7 @@ module.exports = {
 				res.json(user)
 			}
 		})
-	}
+	},
 	upcoming: function(req,res){
 		User.find({_id: req.session.current_user._id}).populate('_events').populate('_items').exec(function(err, user){
 			if(err){

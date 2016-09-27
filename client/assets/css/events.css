@@ -1,0 +1,85 @@
+.navbar{
+	color: white;
+	background-color: #0066ff;
+	font-family: Arial, Helvetica, sans-serif;
+}
+	.navbar i{
+		color: white;
+	}
+
+.app{
+	background-color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.create-event h4{
+	margin: 3% 0%;
+}
+.events-div{
+	padding: 2%;
+}
+.event{
+	margin: 1% 0%;
+}
+.event-image{
+	background-image: url("/assets/images/tailgate_pic.jpg");
+	background-size: 100%; 
+	background-repeat: no-repeat;
+    background-position: center center; 
+    height: 90%;
+}
+.title{
+	text-indent: 3%;
+	text-align: center;
+}
+	.title h4{
+		margin: 5% auto;
+	}
+.details{
+	text-align: center;
+	font-size: .75em;
+}
+h5{
+	border-bottom: black 1px solid;
+	margin: 1% auto;
+}
+
+//show single event page//
+.show-event-div{
+	padding: 2%;
+}
+.show-event-details{
+	background-image: url("/assets/images/tailgate_pic.jpg");
+	background-size: 100%; 
+	background-repeat: no-repeat;
+    background-position: center center; 
+    height: 100%;
+    color: black;
+    text-align: right;
+}
+	.show-event-details p{
+		background-color: white;
+		opacity: .85;
+		padding: 1%;
+		text-align: center;
+		margin: 20% auto;
+	}
+.show-event-items-div{
+	margin-top: 5%;
+}
+.show-event-item{
+	border: 1px lightgrey solid;
+	border-radius: 3%;
+	padding: 0% 1%;
+}
+	.show-event-item p{
+	margin: 3%;
+	}
+	.show-event-item i{
+	margin-right: 2%;
+	}
+
+
+
+
+
