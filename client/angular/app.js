@@ -8,8 +8,7 @@ app.config(function($routeProvider, $httpProvider){
 						$location.url('/');
 					}
 					return $q.reject(rejection);
-
-				}	
+				}
 			}
 		}
 	);
@@ -24,7 +23,7 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/events',{
 		templateUrl: 'partials/users_events.html'
 	})
-	.when('/event/:id',{
+	.when('/event/:eid',{
 		templateUrl: 'partials/eventscreen.html'
 	})
 	.otherwise({

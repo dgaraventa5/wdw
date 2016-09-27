@@ -27,16 +27,38 @@ module.exports = {
 			if(err){
 				res.sendStatus(500)
 			}else{
+				res.json(user._event)
+				// User.populate('user', {path:'_items._users', model:'User'}).exec(function(err, full_user){
+				// 	if(err){
+				// 		res.sendStatus(500)
+				// 	}else{
+				// 		res.json(full_user)
+				// 	}
+				// })
+			}
+		})
+	},
+	items: function(req,res){
+		User.find({_id:req.session.current_user._id}).populate('_items').exec(function(err, user){
+			if(err){
+				res.sendStatus(500)
+			}else{
 				User.populate('user', {path:'_items._users', model:'User'}).exec(function(err, full_user){
 					if(err){
 						res.sendStatus(500)
 					}else{
-						res.json(full_user)
+						Item.find({_event: {$in:user._events}}, function(err, all_items){
+							obj = {
+								user_items: full_user._items,
+								all_items: all_items
+							}
+							res.json(obj)
+						})
 					}
 				})
 			}
 		})
-	},
+	}
 	new: function(req,res){
 		var user = {
 			facebook_token: req.body.facebook_token,

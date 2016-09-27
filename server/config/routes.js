@@ -6,12 +6,14 @@ module.exports = function(app){
 	//Users Routes
 	app.get('/users', users.all)
 	app.get('/user/upcoming', users.upcoming)
+	app.get('/user/items', users.items)
 	app.get('/user/:id', users.show)
 	app.post('/user', users.new)
 
 	//Events Routes
 	app.get('/events', events.all)
 	app.get('/event/:id', events.show)
+	app.get('/event/attendees/:id', event.attendees)
 	app.post('/event', events.new)
 	app.post('/event/:id', events.edit)
 	app.post('/event/attendees/:id', events.add_attendees)
@@ -19,7 +21,8 @@ module.exports = function(app){
 	app.post('/event/delete/:id', events.delete)
 
 	//Items Routes
-	app.get('/items/:eid', items.show)
+	app.get('/item/:id', items.show)
+	app.get('/items/:eid', items.all)
 	app.post('/item/:eid', items.new)
 	app.post('/item/edit/:id', items.edit)
 	app.post('/item/add_user/:id/:uid', items.add_user)
