@@ -1,6 +1,16 @@
 app.factory('userFactory', function($http){
 	var factory = {}
 
+	factory.login = function(user, callback){
+		$http({
+			method:"POST",
+			url:"/login"
+		})
+		.then(function successCallback(res){
+			callback()
+		})
+	}
+
 	factory.getUsers = function(callback){
 		$http({
 			method:"GET",

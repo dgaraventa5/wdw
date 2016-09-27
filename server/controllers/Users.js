@@ -4,6 +4,30 @@ var Event = mongoose.model('Event');
 var Item = mongoose.model('Item');
 
 module.exports = {
+	login: function(req,res){
+		User.findOne({fbid: req.body.fbid}, function(err, user){
+			if(err){
+				var user = {
+					fbid: req.body.uid,
+					name: req.body.displayName,
+					image: req.body.photoURL
+				}
+				var new_user = new User(user)
+
+				new_user.save(function(err, saved_user){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						req.session.current_user = saved_user
+						res.status(200).json(saved_user)
+					}
+				})
+			}else{
+				req.session.current_user = user
+				res.json(user)
+			}
+		})
+	},
 	all: function(req,res){
 		User.find({}, function(err,users){
 			if(err){
@@ -49,21 +73,6 @@ module.exports = {
 						})
 					}
 				})
-			}
-		})
-	},
-	new: function(req,res){
-		var user = {
-			facebook_token: req.body.facebook_token,
-			name: req.body.name
-		}
-		var new_user = new User(user)
-
-		new_user.save(function(err, saved_user){
-			if(err){
-				res.sendStatus(400)
-			}else{
-				res.json(saved_user)
 			}
 		})
 	}
