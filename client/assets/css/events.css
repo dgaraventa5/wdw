@@ -11,7 +11,6 @@
 	background-color: white;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
 .create-event h4{
 	margin: 3% 0%;
 }
@@ -20,6 +19,9 @@
 }
 .event{
 	margin: 1% 0%;
+	border: 1px lightgrey solid;
+	border-radius: 3%;
+	padding: 1% 0%;
 }
 .event-image{
 	background-image: url("/assets/images/tailgate_pic.jpg");
@@ -35,6 +37,10 @@
 	.title h4{
 		margin: 5% auto;
 	}
+	.title p{
+		margin-bottom: 0%;
+		font-size: .75em;
+	}
 .details{
 	text-align: center;
 	font-size: .75em;
@@ -44,7 +50,7 @@ h5{
 	margin: 1% auto;
 }
 
-//show single event page//
+/*show single event page*/
 .show-event-div{
 	padding: 2%;
 }
@@ -67,17 +73,50 @@ h5{
 .show-event-items-div{
 	margin-top: 5%;
 }
-.show-event-item{
+.show-event-item, .show-event-item-complete{
 	border: 1px lightgrey solid;
 	border-radius: 3%;
-	padding: 0% 1%;
+	padding: 0% .5%;
 }
-	.show-event-item p{
-	margin: 3%;
+.show-event-item-complete{
+	background-color: #e6f3ff;
+	opacity: .7;
+}
+	.show-event-item-complete .assign-user{
+		display: none;
 	}
-	.show-event-item i{
-	margin-right: 2%;
+.show-event-item{
+}
+	.show-event-item p, .show-event-item-complete p{
+		margin: 2%;
+		font-size: 1.2em;
 	}
+	.assign-user{
+		margin: 2% 0% 2% 2%;
+	}
+	.profile-pic{
+		width: 1.5em;
+		height: 1.5em;
+		border-radius: 50%;
+		margin: 0% 0% 2% 2%;
+	}
+
+/* new event */
+.new-event-photo{
+	height: 10em;
+	background-color: #e6f3ff;
+	position: relative;
+	margin-top: 1em;
+}
+#upload-photo{ 
+	border-radius: 5%;
+	position: absolute;
+	bottom: 5%;
+	right: 2%;
+}
+.new-event-details{
+	margin-top: 1em;
+}
 
 
 

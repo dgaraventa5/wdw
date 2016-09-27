@@ -26,6 +26,9 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/event/:eid',{
 		templateUrl: 'partials/eventscreen.html'
 	})
+	.when('/newevent',{
+		templateUrl: 'partials/newevent.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
