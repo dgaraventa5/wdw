@@ -12,14 +12,19 @@
 
 		  <div ui-if="activeTab == 1">
 		    <h3 class="page-header">Tab 1</h3>
-		    {{all_items}}
+		    <div class="row">
+		    	<div class="col-xs-12 all-items">
+		    		{{all_items}}
+		    	</div>
+		    </div>
 		    <p><!-- ... --></p>
 		  </div>
 
 		  <div ui-if="activeTab == 2">
 		    <h3 class="page-header">Tab 2</h3>
-		    {{user_items}}
-		    <p><!-- ... --></p>
+		    <div class="notif-tab-data">
+		    	{{user_items}}
+		    </div>
 		  </div>
 		</div>
 	</div>
