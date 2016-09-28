@@ -52,7 +52,6 @@ module.exports = {
 	},
 	upcoming: function(req,res){
 		Event.find({_attendees:{$in:[req.session.current_user._id]}}).exec(function(err, user_events){
-			console.log(user_events)
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -73,7 +72,6 @@ module.exports = {
 							if(err){
 								res.sendStatus(500)
 							}else{
-								console.log(user_items)
 								var obj = {
 									user_items: user_items,
 									all_items: all_items
