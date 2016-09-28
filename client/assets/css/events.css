@@ -1,3 +1,45 @@
+#welcome-div{
+	background-image: url("/assets/images/poolparty.jpg");
+	background-size: ;
+	background-repeat: no-repeat;
+    background-position: center center; 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+}
+#welcome-overlay{
+	background-color: rgba(0, 102, 255, 0.7);
+	text-align: center;
+	padding: 5%;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+	#welcome-overlay h1{
+		margin: 20% auto 10% auto;
+	}
+	#welcome-overlay h4{
+		margin: 5% auto 40% auto;
+	}
+	#welcome-overlay button{
+		color: rgb(0, 102, 255);
+		background-color: white;
+		border: rgb(0, 102, 255) solid 1px;
+		padding: 4%;
+		margin-bottom: 15%;
+
+	}
+	#welcome-overlay i{
+		margin: 0% 3% 0% 0%;
+	}
+/*#welcome-text{
+	position: absolute;
+	bottom: 10%;
+}*/
+
 .navbar{
 	color: white;
 	background-color: #0066ff;
