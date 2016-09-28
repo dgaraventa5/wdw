@@ -1,5 +1,5 @@
 <div class="scrollable" ng-controller='eventscreenController'>
-	<div class="scrollable-content show-event-div">
+	<div class="scrollable-content show-event-div" >
 		<div class="row event-info">
 			<div class="col-xs-10 col-xs-offset-1 show-event-details">
 				<div class="row">
@@ -27,12 +27,14 @@
 					<p>
 						<i class="fa fa-circle-thin" aria-hidden="true"></i>
 						{{item.description}}
-						<a href='#/item/assign/{{item._id}}'><i class="fa fa-user-plus fa-fw fa-lg pull-right assign-user" aria-hidden="true"></i></a>
+						<a href='#/item/assign/{{item._id}}' ng-if="current_user._id == event._host._id"><i class="fa fa-user-plus fa-fw fa-lg pull-right assign-user" aria-hidden="true"></i></a>
+						<i class="fa fa-user-plus fa-fw fa-lg pull-right assign-user" aria-hidden="true" ng-if="current_user._id != event._host._id && itemCheck(item._users)" ng-click="assignMe(item._id)"></i>
+						<i class="fa fa-user-times fa-fw fa-lg pull-right assign-user" aria-hidden="true" ng-if="current_user._id != event._host._id && !itemCheck(item._users)" ng-click="removeMe(item._id)"></i>
 						<img ng-repeat="user in item._users" class="profile-pic pull-right" src="{{user.image}}">
 					</p>
 				</div>
 			</div>
 		</div>
-		<a href="#/event/attendees/{{event._id}}">Add Friends</a>
+		<a href="#/event/attendees/{{event._id}}" ng-if="current_user._id == event._host._id">Add Friends</a>
 	</div>
 </div>

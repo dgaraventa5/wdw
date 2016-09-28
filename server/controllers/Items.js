@@ -71,14 +71,30 @@ module.exports = {
 			}
 		})
 	},
-	remove_user: function(req,res){
-		Item.find({_id:req.params.id}, function(err, item){
+	assign_user: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				for(var i=0 ; i<item.users.length ; i++){
-					if(item.users[i] == req.params.uid){
-						item.users.splice(i, 1)
+				item._users.push(req.session.current_user._id)
+				item.save(function(err, saved_item){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						res.json(saved_item)
+					}
+				})
+			}
+		})
+	},
+	remove_user: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				for(var i=0 ; i<item._users.length ; i++){
+					if(item._users[i] == req.session.current_user._id){
+						item._users.splice(i, 1)
 					}
 				}
 				item.save(function(err, saved_item){

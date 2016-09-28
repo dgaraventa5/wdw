@@ -38,6 +38,9 @@ module.exports = {
 			}
 		})
 	},
+	current_user: function(req,res){
+		res.json(req.session.current_user)
+	},
 	show: function(req,res){
 		User.find({_id:req.params.id}, function(err, user){
 			if(err){
@@ -48,40 +51,38 @@ module.exports = {
 		})
 	},
 	upcoming: function(req,res){
-		User.findOne({_id: req.session.current_user._id}).populate('_events').exec(function(err, user){
-			console.log(user)
+		Event.find({_attendees:{$in:[req.session.current_user._id]}}).exec(function(err, user_events){
+			console.log(user_events)
 			if(err){
 				res.sendStatus(500)
 			}else{
-				console.log("USER_EVENTS")
-				console.log(user._events)
-				res.json(user._events)
+				res.json(user_events)
 			}
 		})
 	},
 	items: function(req,res){
-		User.findOne({_id:req.session.current_user._id}).populate('_items').populate('_items._users').exec(function(err, user){
+		User.findOne({_id:req.session.current_user._id}).exec(function(err, user){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				// User.populate(user, {path:'_items._users', model:'User'}).exec(function(err, full_user){
-				// 	console.log('here')
-				// 	if(err){
-				// 		res.sendStatus(500)
-				// 	}else{
-						Item.find({_event: {$in:user._events}}, function(err, all_items){
+				Item.find({_event: {$in:user._events}}).populate('_users').exec(function(err, all_items){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						Item.find({_users: {$in:[user._id]}}).populate('_users').exec(function(err, user_items){
 							if(err){
 								res.sendStatus(500)
 							}else{
-								obj = {
-									user_items: user._items,
+								console.log(user_items)
+								var obj = {
+									user_items: user_items,
 									all_items: all_items
 								}
 								res.json(obj)
 							}
 						})
-				// 	}
-				// })
+					}
+				})
 			}
 		})
 	}

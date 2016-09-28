@@ -43,13 +43,6 @@ module.exports = {
 			_admins: [req.session.current_user._id],
 			_attendees: [req.session.current_user._id]
 		}
-		// if(req.body.admins){
-		// 	event._admins.concat(req.body.admins)
-		// 	event._attendees.concat(req.body.admins)
-		// }
-		// if(req.body._attendees){
-		// 	event._attendees.concat(req.body.attendees)
-		// }
 
 		var new_event = new Event(event)
 

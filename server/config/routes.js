@@ -8,6 +8,7 @@ module.exports = function(app){
 
 	//Users Routes
 	app.get('/users', users.all)
+	app.get('/current_user', users.current_user)
 	app.get('/user/upcoming', users.upcoming)
 	app.get('/user/items', users.items)
 	app.get('/user/:id', users.show)
@@ -27,8 +28,9 @@ module.exports = function(app){
 	app.get('/items/:eid', items.all)
 	app.post('/item/:eid', items.new)
 	app.post('/item/edit/:id', items.edit)
+	app.post('/item/assign_me/:id', items.assign_user)
+	app.post('/item/remove_me/:id', items.remove_user)
 	app.post('/item/update_users/:id', items.update_users)
-	app.post('/item/remove_user/:id/:uid', items.remove_user)
 
 
 }
