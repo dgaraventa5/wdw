@@ -44,6 +44,7 @@ body, html{
 	color: white;
 	background-color: #0066ff;
 	font-family: Arial, Helvetica, sans-serif;
+	z-index:0;
 }
 	.navbar i{
 		color: white;
@@ -172,27 +173,68 @@ h5{
 	margin-top: .5em;
 }
 #invite-friends-btn{
-	color: #0066ff;
-	border-color: #0066ff;
-	background-color: white;
-}
-.create-event-btn{
 	background-color: white;
 	border: 1px solid #0066ff;
 }
-	.create-event-btn h4{
+	#create-event-btn h4{
 		margin: 0%;
 	}
 
 /* invite friends */
 #friends-header{
 	border-bottom: solid 1px black;
+	margin-top: 1%;
 	margin-bottom: none;
+	font-size: 1.2em;
 }
 .invite-friend-div{
-
+	border: 1px lightgrey solid;
+	border-radius: 3%;
+	padding: 0% 2%;
 }
-
-
+	.invite-friend-div p{
+		margin: 2%;
+		font-size: 1em;
+	}
+	.invite-friend-div img{
+		margin: 0%;
+	}
+	.invite-friend-div i{
+		color: #5bd75b;
+		margin-top: 1%;
+		border: none;
+	}
+.invite-friend-name{
+	padding: 0%;
+}
+#uninvite-friend{
+	color: red;
+}
+#invite-all-friends{
+	color: white;
+	background-color: #5bd75b;
+	margin-bottom: 5%;
+}
+#invite-friends-done-btn{
+	color: white;
+	background-color: #0066ff;
+	border: none;
+	position:fixed;
+	top: 1.75%;
+	right:2%;
+	z-index:1;
+}
+#invite-friend-search{
+	border: 1px lightgrey solid;
+	border-radius: 3%;
+}
+	#invite-friend-search{
+		padding: 0em;
+	}
+	#invite-friend-search{
+		font-size: 1em;
+		color: black;
+		text-indent: 3%;
+	}
 
 

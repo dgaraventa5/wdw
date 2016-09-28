@@ -8,6 +8,12 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 		})
 	}
 
+	$scope.modalOn = false;
+
+	$scope.inviteFriendsModal = function(){
+		$scope.modalOn = true;
+	}
+
 	$scope.getEvents = function(){
 		eventFactory.getEvents(function(events){
 			$scope.events = events
