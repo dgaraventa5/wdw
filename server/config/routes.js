@@ -18,7 +18,7 @@ module.exports = function(app){
 	app.get('/event/attendees/:id', events.attendees)
 	app.post('/event', events.new)
 	app.post('/event/:id', events.edit)
-	app.post('/event/attendees/:id', events.add_attendees)
+	app.post('/event/attendees/:id', events.update_attendees)
 	app.post('/event/admins/:id', events.add_admins)
 	app.post('/event/delete/:id', events.delete)
 
@@ -27,7 +27,7 @@ module.exports = function(app){
 	app.get('/items/:eid', items.all)
 	app.post('/item/:eid', items.new)
 	app.post('/item/edit/:id', items.edit)
-	app.post('/item/add_user/:id/:uid', items.add_user)
+	app.post('/item/update_users/:id', items.update_users)
 	app.post('/item/remove_user/:id/:uid', items.remove_user)
 
 

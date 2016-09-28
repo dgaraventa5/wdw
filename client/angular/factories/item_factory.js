@@ -47,11 +47,12 @@ app.factory('itemFactory', function($http){
 		})
 	}
 
-	factory.addUser = function(item_id, user_id, callback){
-		var src = "/item/add_user/"+item_id+"/"+user_id
+	factory.updateUsers = function(item_id, users, callback){
+		var src = "/item/update_users/"+item_id
 		$http({
 			method:"POST",
-			url:src
+			url:src,
+			data: users
 		})
 		.then(function successCallback(res){
 			callback()

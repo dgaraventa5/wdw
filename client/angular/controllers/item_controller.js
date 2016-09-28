@@ -2,9 +2,9 @@ app.controller('itemController', ['$scope', '$location', '$routeParams', 'itemFa
 	if($routeParams.iid){
 		itemFactory.getItem($routeParams.iid, function(item){
 			$scope.item = item
-		})
-		eventFactory.getAttendees($scope.item._event._id, function(attendees){
-			$scope.attendees = attendees
+			eventFactory.getAttendees($scope.item._event, function(attendees){
+				$scope.attendees = attendees
+			})
 		})
 	}
 	if($routeParams.eid){
@@ -25,9 +25,20 @@ app.controller('itemController', ['$scope', '$location', '$routeParams', 'itemFa
 		})
 	}
 
-	$scope.addUser = function(user_id){
-		itemFactory.addUser($routeParams.iid, user_id, function(){
-			$location.path("/item/"+$routeParams.iid)
+	$scope.addToUsers = function(user_id){
+		$scope.item._users.push(user_id)
+	}
+	$scope.removeFromUsers = function(user_id){
+		for(var i=0 ; i < $scope.item._users.length ; i++){
+			if ($scope.item._users[i] == user_id){
+				$scope.item._users.splice(i,1)
+			}
+		}
+	}
+
+	$scope.updateUsers = function(){
+		itemFactory.updateUsers($routeParams.iid, $scope.item._users, function(){
+			$location.path("/event/"+$scope.item._event)
 		})
 	}
 

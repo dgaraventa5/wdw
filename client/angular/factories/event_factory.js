@@ -55,7 +55,7 @@ app.factory('eventFactory', function($http){
 		})
 	}
 
-	factory.addAttendees = function(event_id, atn_array, callback){
+	factory.updateAttendees = function(event_id, atn_array, callback){
 		src = "/event/attendees/"+event_id
 		$http({
 			method:"POST",

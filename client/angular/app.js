@@ -26,11 +26,13 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/newevent',{
 		templateUrl: 'partials/newevent.html'
 	})
-	.when('/invitefriends',{
+	.when('/event/attendees/:eid',{
 		templateUrl: 'partials/invitefriends.html'
 	})
 	.when('/notifications',{
 		templateUrl: 'partials/notifications.html'
+	.when('/item/assign/:iid',{
+		templateUrl: 'partials/itemfriends.html'
 	})
 	.otherwise({
 		redirectTo: '/'

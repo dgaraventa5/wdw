@@ -5,7 +5,7 @@ var Item = mongoose.model('Item');
 
 module.exports = {
 	show: function(req,res){
-		Item.find({_id:req.params.id}).populate('_users').populate('_event').exec(function(err, item){
+		Item.findOne({_id:req.params.id}).exec(function(err, item){
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -54,12 +54,13 @@ module.exports = {
 			}
 		})
 	},
-	add_user: function(req,res){
-		Item.find({_id:req.params.id}, function(err, item){
+	update_users: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				item.users.push(req.params.uid)
+				item._users = req.body
+				console.log(item)
 				item.save(function(err, saved_item){
 					if(err){
 						res.sendStatus(500)

@@ -197,11 +197,11 @@ h5{
 	border-radius: 3%;
 	padding: 0% 2%;
 }
-	.invite-friend-div p{
+	.invite-friend-div p, .attendees-div p{
 		margin: 2%;
 		font-size: 1em;
 	}
-	.invite-friend-div img{
+	.invite-friend-div img, .attendees-div img{
 		margin: 0%;
 	}
 	.invite-friend-div i{
@@ -241,6 +241,16 @@ h5{
 		color: black;
 		text-indent: 3%;
 	}
+.attendees-div{
+	border: 1px #0066ff solid;
+	border-radius: 3%;
+	padding: 0% 2%;
+}
+.attendees-div i{
+	color: red;
+	margin-top: 1%;
+	border: none;
+}
 
 .notif-tab{
 	width: 49%;

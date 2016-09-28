@@ -14,7 +14,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		Event.findOne({_id:req.params.id}).populate('_host').populate('_admins').populate('_attendees').exec(function(err, event){
+		Event.findOne({_id:req.params.id}).populate('_host').populate('_admins').exec(function(err, event){
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -23,7 +23,7 @@ module.exports = {
 		})
 	},
 	attendees: function(req,res){
-		Event.find({_id:req.params.id}).populate('_attendees').exec(function(err, event){
+		Event.findOne({_id:req.params.id}).populate('_attendees').exec(function(err, event){
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -43,13 +43,13 @@ module.exports = {
 			_admins: [req.session.current_user._id],
 			_attendees: [req.session.current_user._id]
 		}
-		if(req.body.admins){
-			event._admins.concat(req.body.admins)
-			event._attendees.concat(req.body.admins)
-		}
-		if(req.body._attendees){
-			event._attendees.concat(req.body.attendees)
-		}
+		// if(req.body.admins){
+		// 	event._admins.concat(req.body.admins)
+		// 	event._attendees.concat(req.body.admins)
+		// }
+		// if(req.body._attendees){
+		// 	event._attendees.concat(req.body.attendees)
+		// }
 
 		var new_event = new Event(event)
 
@@ -75,12 +75,13 @@ module.exports = {
 		})
 
 	},
-	add_attendees: function(req,res){
-		Event.find({_id:req.params.id}, function(err,event){
+	update_attendees: function(req,res){
+		Event.findOne({_id:req.params.id}, function(err,event){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				event._attendees.concat(req.body.attendees)
+				event._attendees = req.body.attendees
+				console.log(event)
 				event.save(function(err, saved_event){
 					if(err){
 						res.sendStatus(500)
