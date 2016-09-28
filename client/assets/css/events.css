@@ -255,6 +255,11 @@ h5{
 .notif-tab{
 	width: 49%;
 	text-align: center; 
+	
 }
+.notif-tab-data{
+	overflow-x: hidden;
+}
+/*notifications*/
 
 
