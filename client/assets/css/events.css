@@ -1,3 +1,7 @@
+body, html{
+	height: 100%;
+}
+
 #welcome-div{
 	background-image: url("/assets/images/poolparty.jpg");
 	background-size: ;
@@ -20,6 +24,7 @@
 }
 	#welcome-overlay h1{
 		margin: 20% auto 10% auto;
+		/*height: 50%;*/
 	}
 	#welcome-overlay h4{
 		margin: 5% auto 40% auto;
@@ -35,11 +40,6 @@
 	#welcome-overlay i{
 		margin: 0% 3% 0% 0%;
 	}
-/*#welcome-text{
-	position: absolute;
-	bottom: 10%;
-}*/
-
 .navbar{
 	color: white;
 	background-color: #0066ff;
@@ -113,12 +113,26 @@ h5{
 		margin: 20% auto;
 	}
 .show-event-items-div{
-	margin-top: 5%;
+	margin-top: 1%;
 }
-.show-event-item, .show-event-item-complete{
+.new-event-item, .show-event-item, .show-event-item-complete{
 	border: 1px lightgrey solid;
 	border-radius: 3%;
-	padding: 0% .5%;
+}
+	.new-event-item{
+		padding: 0em;
+	}
+	.new-event-item input{
+		font-size: 1.2em;
+		color: black;
+	}
+	.input-group{
+		width: 100%;
+	}
+#add-item-btn{
+	color: white;
+	background-color: #0066ff;
+	border: #0066ff solid 1px;
 }
 .show-event-item-complete{
 	background-color: #e6f3ff;
@@ -127,9 +141,7 @@ h5{
 	.show-event-item-complete .assign-user{
 		display: none;
 	}
-.show-event-item{
-}
-	.show-event-item p, .show-event-item-complete p{
+.show-event-item p, .show-event-item-complete p{
 		margin: 2%;
 		font-size: 1.2em;
 	}
@@ -157,17 +169,29 @@ h5{
 	right: 2%;
 }
 .new-event-details{
-	margin-top: 1em;
+	margin-top: .5em;
 }
 #invite-friends-btn{
 	color: #0066ff;
 	border-color: #0066ff;
 	background-color: white;
 }
-#create-event-btn{
-	margin-top: 3em;
+.create-event-btn{
+	background-color: white;
+	border: 1px solid #0066ff;
 }
+	.create-event-btn h4{
+		margin: 0%;
+	}
 
+/* invite friends */
+#friends-header{
+	border-bottom: solid 1px black;
+	margin-bottom: none;
+}
+.invite-friend-div{
+
+}
 
 
 

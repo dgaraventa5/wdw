@@ -26,6 +26,9 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/newevent',{
 		templateUrl: 'partials/newevent.html'
 	})
+	.when('/invitefriends',{
+		templateUrl: 'partials/invitefriends.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
