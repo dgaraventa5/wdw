@@ -1,0 +1,26 @@
+<div ng-controller="notificationController" class="scrollable">
+	<div class="scrollable-content">
+		<div ui-state="activeTab" default="1">
+		  <ul class="nav nav-tabs">
+		    <li class="notif-tab" ui-class="{'active': activeTab == 1}">
+		      <a ui-set="{'activeTab': 1}">All</a>
+		    </li>
+		    <li class="notif-tab" ui-class="{'active': activeTab == 2}">
+		      <a ui-set="{'activeTab': 2}">Personal</a>
+		    </li>
+		  </ul>
+
+		  <div ui-if="activeTab == 1">
+		    <h3 class="page-header">Tab 1</h3>
+		    {{all_items}}
+		    <p><!-- ... --></p>
+		  </div>
+
+		  <div ui-if="activeTab == 2">
+		    <h3 class="page-header">Tab 2</h3>
+		    {{user_items}}
+		    <p><!-- ... --></p>
+		  </div>
+		</div>
+	</div>
+</div>

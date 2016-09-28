@@ -173,10 +173,15 @@ h5{
 	margin-top: .5em;
 }
 #invite-friends-btn{
+	color: #0066ff;
+	border-color: #0066ff;
+	background-color: white;
+}
+.create-event-btn{
 	background-color: white;
 	border: 1px solid #0066ff;
 }
-	#create-event-btn h4{
+	.create-event-btn h4{
 		margin: 0%;
 	}
 
@@ -236,5 +241,10 @@ h5{
 		color: black;
 		text-indent: 3%;
 	}
+
+.notif-tab{
+	width: 49%;
+	text-align: center; 
+}
 
 
