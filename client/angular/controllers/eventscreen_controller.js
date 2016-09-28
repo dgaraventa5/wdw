@@ -26,6 +26,13 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 			})
 		})
 	}
+	$scope.removeMe = function(item_id){
+		itemFactory.removeMe(item_id, function(){
+			itemFactory.getEventItems($routeParams.eid, function(items){
+				$scope.event_items = items
+			})
+		})
+	}
 	$scope.itemCheck = function(users){
 		for(var i = 0 ; i < users.length ; i++){
 			if (users[i]._id == $scope.current_user._id){

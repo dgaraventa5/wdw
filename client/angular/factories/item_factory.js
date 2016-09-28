@@ -60,7 +60,7 @@ app.factory('itemFactory', function($http){
 	}
 
 	factory.assignMe = function(item_id, callback){
-		var src = "item/assign/"+item_id
+		var src = "item/assign_me/"+item_id
 		$http({
 			method:"POST",
 			url:src
@@ -70,8 +70,8 @@ app.factory('itemFactory', function($http){
 		})
 	}
 
-	factory.removeUser = function(item_id, user_id, callback){
-		var src = "/item/remove_user/"+item_id+"/"+user_id
+	factory.removeMe = function(item_id, callback){
+		var src = "/item/remove_me/"+item_id
 		$http({
 			method:"POST",
 			url:src
