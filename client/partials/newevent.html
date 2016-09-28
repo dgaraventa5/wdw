@@ -6,15 +6,15 @@
 			</div>
 			<div class="new-event-details col-xs-10 col-xs-offset-1">
 				<form class="form-group">
-					<input type="text" class="form-control" name="event.name" placeholder="Event Name">
-					<input type="text" class="form-control" name="event.location" placeholder="Location">
-					<input type="date" class="form-control" ng-model="event.date" ng-min="2016-08-27">
-					<input type="time" class="form-control" name="event.time" placeholder="02:00 PM">
+					<input type="text" class="form-control" name="new_event.name" placeholder="Event Name">
+					<input type="text" class="form-control" name="new_event.location" placeholder="Location">
+					<input type="date" class="form-control" ng-model="new_event.date" ng-min="2016-08-27">
+					<input type="time" class="form-control" name="new_event.time" placeholder="02:00 PM">
 					<textarea class="form-control" placeholder="Description (optional)" rows="3"></textarea>
 			</div>
 			<div class="new-event-button-div col-xs-6 col-xs-offset-3">
 				<button type="button" id="invite-friends-btn" class="btn btn-primary btn-block">Invite Friends</button>
-				<button type="button" id="create-event-btn" class="btn btn-primary btn-block btn-lg">Create Event</button>
+				<button type="button" id="create-event-btn" class="btn btn-primary btn-block btn-lg" ng-click='new_event()'>Create Event</button>
 				</form>
 			</div>	
 		</div>

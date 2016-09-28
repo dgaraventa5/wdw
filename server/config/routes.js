@@ -3,12 +3,14 @@ var events = require('../controllers/Events.js');
 var items = require('../controllers/Items.js');
 
 module.exports = function(app){
+	//Unprotected Routes
+	app.post('/login', users.login)
+
 	//Users Routes
 	app.get('/users', users.all)
 	app.get('/user/upcoming', users.upcoming)
 	app.get('/user/items', users.items)
 	app.get('/user/:id', users.show)
-	app.post('/user', users.new)
 
 	//Events Routes
 	app.get('/events', events.all)
