@@ -1,4 +1,4 @@
-<div class="scrollable" ng-controller="eventController">
+<div class="scrollable" ng-controller="itemController">
 	<div class="scrollable-content show-event-div">				
 		<div class="friends-list-div">
 			<div class="row">
@@ -19,15 +19,15 @@
 					<button type="button" id="invite-all-friends" class="btn btn-block">Invite All Friends</button>
 				</div>
 			<!-- ng-repeat this div for friends-->
-				<div ng-repeat="user in users">
-					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!event._attendees.includes(user._id)" ng-click="addToAttendees(user._id)">
+				<div ng-repeat="user in attendees">
+					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!item._users.includes(user._id)" ng-click="addToUsers(user._id)">
 						<p>
 							<img class="profile-pic" ng-src="{{user.image}}">
 							{{user.name}}
 							<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
 						</p>
 					</div>
-					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="event._attendees.includes(user._id)" ng-click="removeFromAttendees(user._id)">
+					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="item._users.includes(user._id)" ng-click="removeFromUsers(user._id)">
 						<p>
 							<img class="profile-pic" ng-src="{{user.image}}">
 							{{user.name}}
@@ -35,7 +35,7 @@
 						</p>
 					</div>
 				</div>
-				<button id='invite-friends-done-btn' ng-click="updateAttendees()">Done</button>
+				<button id='invite-friends-done-btn' ng-click="updateUsers()">Done</button>
 			</div>
 		</div>
 	</div>

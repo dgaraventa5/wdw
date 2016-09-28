@@ -5,17 +5,13 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 		})
 		userFactory.getUsers(function(users){
 			$scope.users = users
+			console.log(users)
 		})
 		itemFactory.getEventItems($routeParams.eid, function(items){
 			$scope.event_items = items
 		})
 	}
 
-	$scope.modalOn = false;
-
-	$scope.inviteFriendsModal = function(){
-		$scope.modalOn = true;
-	}
 
 	$scope.getEvents = function(){
 		eventFactory.getEvents(function(events){
@@ -39,8 +35,19 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 		})
 	}
 
-	$scope.addAttendees = function(){
-		eventFactory.addAttendees($routeParams.eid, $scope.new_attendees, function(){
+	$scope.addToAttendees = function(user_id){
+		$scope.event._attendees.push(user_id)
+	}
+	$scope.removeFromAttendees = function(user_id){
+		for(var i=0 ; i < $scope.event._attendees.length ; i++){
+			if ($scope.event._attendees[i] == user_id){
+				$scope.event._attendees.splice(i,1)
+			}
+		}
+	}
+
+	$scope.updateAttendees = function(){
+		eventFactory.updateAttendees($routeParams.eid, $scope.event._attendees, function(){
 			$location.path("/event/"+$routeParams.eid)
 		})
 	}
