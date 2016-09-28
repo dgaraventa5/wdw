@@ -4,7 +4,9 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 	})
 	userFactory.getUsers(function(users){
 		$scope.users = users
-		console.log(users)
+	})
+	userFactory.getCurrentUser(function(user){
+		$scope.current_user = user
 	})
 	itemFactory.getEventItems($routeParams.eid, function(items){
 		$scope.event_items = items
@@ -16,5 +18,20 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 				$scope.event_items = items
 			})
 		})
+	}
+	$scope.assignMe = function(item_id){
+		itemFactory.assignMe(item_id, function(){
+			itemFactory.getEventItems($routeParams.eid, function(items){
+				$scope.event_items = items
+			})
+		})
+	}
+	$scope.itemCheck = function(users){
+		for(var i = 0 ; i < users.length ; i++){
+			if (users[i]._id == $scope.current_user._id){
+				return false
+			}
+		}
+		return true
 	}
 }])

@@ -71,6 +71,22 @@ module.exports = {
 			}
 		})
 	},
+	assign_user: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				item._users.push(req.session.current_user._id)
+				item.save(function(err, saved_item){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						res.json(saved_item)
+					}
+				})
+			}
+		})
+	},
 	remove_user: function(req,res){
 		Item.find({_id:req.params.id}, function(err, item){
 			if(err){

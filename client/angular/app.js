@@ -31,6 +31,7 @@ app.config(function($routeProvider, $httpProvider){
 	})
 	.when('/notifications',{
 		templateUrl: 'partials/notifications.html'
+	})
 	.when('/item/assign/:iid',{
 		templateUrl: 'partials/itemfriends.html'
 	})

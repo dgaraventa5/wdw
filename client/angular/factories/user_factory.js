@@ -21,6 +21,15 @@ app.factory('userFactory', function($http){
 			callback(res.data)
 		})
 	}
+	factory.getCurrentUser = function(callback){
+		$http({
+			method:"GET",
+			url:"/current_user"
+		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
 
 	factory.getUpcoming = function(callback){
 		$http({
