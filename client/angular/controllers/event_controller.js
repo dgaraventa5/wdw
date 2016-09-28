@@ -1,10 +1,13 @@
-app.controller('eventController', ['$scope', '$location', '$routeParams', 'eventFactory', 'userFactory', function($scope, $location, $routeParams, eventFactory, userFactory){
+app.controller('eventController', ['$scope', '$location', '$routeParams', 'eventFactory', 'userFactory', 'itemFactory', function($scope, $location, $routeParams, eventFactory, userFactory, itemFactory){
 	if($routeParams.eid){
 		eventFactory.getEvent($routeParams.eid, function(event){
 			$scope.event = event
 		})
 		userFactory.getUsers(function(users){
 			$scope.users = users
+		})
+		itemFactory.getEventItems($routeParams.eid, function(items){
+			$scope.event_items = items
 		})
 	}
 
@@ -20,9 +23,13 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 		})
 	}
 
+	$scope.getEvent = function(event_id){
+		$location.path("/event/"+event_id)
+	}
+
 	$scope.newEvent = function(){
 		eventFactory.newEvent($scope.new_event, function(event){
-			$location.path("/event/"+event._id)
+			$location.path("/event/attendees/"+event._id)
 		})
 	}
 
@@ -41,6 +48,14 @@ app.controller('eventController', ['$scope', '$location', '$routeParams', 'event
 	$scope.addAdmins = function(){
 		eventFactory.addAdmins($routeParams.eid, $scope.new_admins, function(){
 			$location.path("/event/"+$routeParams.eid)
+		})
+	}
+
+	$scope.newItem = function(){
+		itemFactory.newItem($routeParams.eid, $scope.new_item, function(){
+			itemFactory.getEventItems($routeParams.eid, function(items){
+				$scope.event_items = items
+			})
 		})
 	}
 

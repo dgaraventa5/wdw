@@ -14,7 +14,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
-		Event.find({_id:req.params.id}).populate('_host').populate('_admins').populate('_attendees').exec(function(err, event){
+		Event.findOne({_id:req.params.id}).populate('_host').populate('_admins').populate('_attendees').exec(function(err, event){
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -53,13 +53,27 @@ module.exports = {
 
 		var new_event = new Event(event)
 
-		new_event.save(function(err, saved_event){
+		User.findOne({_id:req.session.current_user._id}, function(err, user){
 			if(err){
-				res.sendStatus(400)
+				res.sendStatus(500)
 			}else{
-				res.json(saved_event)
+				new_event.save(function(err, saved_event){
+					if(err){
+						res.sendStatus(400)
+					}else{
+						user._events.push(saved_event._id)
+						user.save(function(err, saved_user){
+							if(err){
+								res.sendStatus(500)
+							}else{
+								res.json(saved_event)
+							}
+						})
+					}
+				})
 			}
 		})
+
 	},
 	add_attendees: function(req,res){
 		Event.find({_id:req.params.id}, function(err,event){
