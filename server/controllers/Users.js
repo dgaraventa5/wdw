@@ -49,9 +49,12 @@ module.exports = {
 	},
 	upcoming: function(req,res){
 		User.findOne({_id: req.session.current_user._id}).populate('_events').exec(function(err, user){
+			console.log(user)
 			if(err){
 				res.sendStatus(500)
 			}else{
+				console.log("USER_EVENTS")
+				console.log(user._events)
 				res.json(user._events)
 			}
 		})
@@ -74,8 +77,6 @@ module.exports = {
 									user_items: user._items,
 									all_items: all_items
 								}
-								console.log(user._items)
-								console.log(all_items)
 								res.json(obj)
 							}
 						})

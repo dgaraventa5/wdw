@@ -25,7 +25,7 @@ module.exports = {
 	new: function(req,res){
 		var item = {
 			description: req.body.description,
-			_event: req.params.id,
+			_event: req.params.eid,
 			_users: req.body.users
 		}
 		var new_item = new Item(item)

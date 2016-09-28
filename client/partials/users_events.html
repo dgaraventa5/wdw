@@ -6,50 +6,23 @@
 			</div>
 		</div>
 		<h5>Upcoming Events</h5>
-		<div class="row event">
+		<div class="row event" ng-repeat="event in user_events | filter:upcomingFilter('date')" ng-click='getEvent(event._id)'>
 			<div class="col-xs-4">
 				<img class="img-rounded" src="/assets/images/tailgate_pic.jpg">
 			</div>
 			<div class="col-xs-8 title">
-				<h4>Camping Trip</h4>
-				<p>April 18 | 14 friends | 3 items</p>
-			</div>
-		</div>
-		<div class="row event">
-			<div class="col-xs-4">
-				<img class="img-rounded" src="/assets/images/tailgate_pic.jpg">
-			</div>
-			<div class="col-xs-8 title">
-				<h4>Bachorlette Party!!!!</h4>
-				<p>April 18 | 14 friends | 3 items</p>
-			</div>
-		</div>
-		<div class="row event">
-			<div class="col-xs-4">
-				<img class="img-rounded" src="/assets/images/tailgate_pic.jpg">
-			</div>
-			<div class="col-xs-8 title">
-				<h4>Fantasy Football Draft</h4>
-				<p>April 18 | 14 friends | 3 items</p>
+				<h4>{{event.name}}</h4>
+				<p>{{event.date | date : "MMM d"}} |  {{event.time | date : "shortTime"}} | {{event._attendees.length}} attendees</p>
 			</div>
 		</div>
 		<h5>Past Events</h5>
-		<div class="row event">
+		<div class="row event" ng-repeat="event in user_events | filter:pastFilter('date')">
 			<div class="col-xs-4">
 				<img class="img-rounded" src="/assets/images/tailgate_pic.jpg">
 			</div>
 			<div class="col-xs-8 title">
-				<h4>Super Duper BDay Extravaganza</h4>
-				<p>April 18 | 14 friends | 3 items</p>
-			</div>
-		</div>
-		<div class="row event">
-			<div class="col-xs-4">
-				<img class="img-rounded" src="/assets/images/tailgate_pic.jpg">
-			</div>
-			<div class="col-xs-8 title">
-				<h4>Camping Trip</h4>
-				<p>April 18 | 14 friends | 3 items</p>
+				<h4>{{event.name}}</h4>
+				<p>{{event.date | date : "MM/dd"}} | {{event._attendees.length}} attendees | 3 items</p>
 			</div>
 		</div>
 	</div>
