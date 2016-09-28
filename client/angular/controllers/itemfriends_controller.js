@@ -1,4 +1,4 @@
-app.controller('itemController', ['$scope', '$location', '$routeParams', 'itemFactory', 'userFactory', 'eventFactory', function($scope, $location, $routeParams, itemFactory, userFactory, eventFactory){
+app.controller('itemfriendsController', ['$scope', '$location', '$routeParams', 'itemFactory', 'userFactory', 'eventFactory', function($scope, $location, $routeParams, itemFactory, userFactory, eventFactory){
 	itemFactory.getItem($routeParams.iid, function(item){
 		$scope.item = item
 		eventFactory.getAttendees($scope.item._event, function(attendees){

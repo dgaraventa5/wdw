@@ -18,7 +18,7 @@ app.config(function($routeProvider, $httpProvider){
 		controller: 'loginRegController'
 	})
 	.when('/events',{
-		templateUrl: 'partials/users_events.html'
+		templateUrl: 'partials/userevents.html'
 	})
 	.when('/event/:eid',{
 		templateUrl: 'partials/eventscreen.html'
