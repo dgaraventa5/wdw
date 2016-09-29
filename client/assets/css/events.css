@@ -42,13 +42,25 @@ body, html{
 	}
 .navbar{
 	color: white;
-	background-color: #0066ff;
 	font-family: Arial, Helvetica, sans-serif;
 	z-index:0;
 }
 	.navbar i{
 		color: white;
 	}
+	.navbar img{
+		width: 100%;
+		display: inline-block;
+		margin-top: 1%;
+		height: 100%;
+	}
+
+.navbar-absolute-top{
+	background: linear-gradient(#0066cc, #0066ff);
+}
+.navbar-absolute-bottom{
+	background: linear-gradient(#0066ff, #0066cc);
+}
 
 .app{
 	background-color: white;
