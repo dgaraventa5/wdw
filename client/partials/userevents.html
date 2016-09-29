@@ -9,7 +9,7 @@
 		<h5>Upcoming Events</h5>
 		<div class="row event" ng-repeat="event in user_events | filter:upcomingFilter('date')" ng-click='getEvent(event._id)'>
 			<div class="col-xs-4 event-image-div">
-				<img class="img-rounded event-image" src="/assets/images/tailgate_pic.jpg">
+				<img class="img-rounded event-image" ng-src="{{event.image}}">
 			</div>
 			<div class="col-xs-8 title">
 				<h4>{{event.name}}</h4>
