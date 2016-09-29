@@ -77,6 +77,17 @@ app.factory('eventFactory', function($http){
 			callback()
 		})
 	}
+	factory.updateImage = function(event_id, image_url, callback){
+		src = "/event/image/"+event_id
+		$http({
+			method:"POST",
+			url:src,
+			data:{image:image_url}
+		})
+		.then(function successCallback(res){
+			callback()
+		})
+	}
 
 	factory.deleteEvent = function(event_id, callback){
 		src = "/event/delete/"+event_id

@@ -86,6 +86,22 @@ module.exports = {
 			}
 		})
 	},
+	update_image: function(req,res){
+		Event.findOne({_id:req.params.id}, function(err,event){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				event.image = req.body.image
+				event.save(function(err, saved_event){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						res.json(saved_event)
+					}
+				})
+			}
+		})
+	},
 	edit: function(req,res){
 		Event.find({_id:req.params.id}, function(err,event){
 			if(err){
