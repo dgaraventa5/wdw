@@ -7,16 +7,19 @@ app.config(function($routeProvider, $httpProvider, $touchProvider){
 			return{
 				'responseError':function(rejection){
 					if (rejection.status == 401) {
-						$location.url('/');
+						$location.url('/login');
 					}
 					return $q.reject(rejection);
 				}
 			}
 		}
 	);
-	
+
 	$routeProvider
-	.when('/',{
+	.when('/', {
+		redirectTo: '/events'
+	})
+	.when('/login',{
 		templateUrl: 'partials/loginreg.html',
 		controller: 'loginRegController'
 	})
