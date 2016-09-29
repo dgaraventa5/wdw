@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'mobile-angular-ui']);
+var app = angular.module('app', ['ngRoute', 'ngTouch', 'mobile-angular-ui']);
 app.config(function($routeProvider, $httpProvider){
 	$httpProvider.interceptors.push(
 		function($q, $location){

@@ -49,8 +49,9 @@ body, html{
 		color: white;
 	}
 	.navbar img{
-		width: 100%;
+		width: 80%;
 		display: inline-block;
+		margin-left: 10%;
 		margin-top: 1%;
 		height: 100%;
 	}
@@ -273,7 +274,7 @@ h5{
 }
 #invite-friends-done-btn, #choose-event-img-done-btn{
 	color: white;
-	background-color: #0066ff;
+	background-color: transparent;
 	border: none;
 	position:fixed;
 	top: 1.75%;

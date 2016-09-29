@@ -10,10 +10,6 @@ app.controller('chooseEventPhotoController', ['$scope', '$location', '$routePara
 			url: '/assets/images/birthdayparty.jpg'
 		},
 		{
-			name: 'fireomgemoji.jpg',
-			url: '/assets/images/fireomgemoji.jpg'
-		},
-		{
 			name: 'firetracksemoji.png',
 			url: '/assets/images/firetracksemoji.png'
 		},
