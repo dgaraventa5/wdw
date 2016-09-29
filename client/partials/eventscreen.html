@@ -8,6 +8,7 @@
 						<p>{{event._attendees.length}} attendees</p>
 						<p>{{event_items.length}} items</p>
 					</div>
+					<i id="change-event-photo" class="fa fa-picture-o pull-left" aria-hidden="true" ng-click="changeImage()" ng-if="current_user._id == event._host._id">+</i>
 				</div>
 			</div>
 		</div>				

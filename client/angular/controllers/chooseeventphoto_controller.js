@@ -1,7 +1,8 @@
 app.controller('chooseEventPhotoController', ['$scope', '$location', '$routeParams', 'eventFactory', 'userFactory', 'itemFactory', function($scope, $location, $routeParams, eventFactory, userFactory, itemFactory){
 
 	eventFactory.getEvent($routeParams.eid, function(event){
-		$scope.event = event
+		$scope.event = event;
+		$scope.image = $scope.event.image;
 	});
 
 	$scope.selectPhoto = function(url){
