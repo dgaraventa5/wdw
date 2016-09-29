@@ -6,6 +6,15 @@ module.exports = function(app){
 	//Unprotected Routes
 	app.post('/login', users.login)
 
+	//MiddleWare
+	app.use(function(req, res, next){
+		if(req.session.current_user){
+			next();
+		}else{
+			res.sendStatus(401)
+		}
+	})
+
 	//Users Routes
 	app.get('/users', users.all)
 	app.get('/current_user', users.current_user)

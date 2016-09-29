@@ -74,7 +74,6 @@ module.exports = {
 				res.sendStatus(500)
 			}else{
 				event._attendees = req.body.attendees
-				console.log(event)
 				event.save(function(err, saved_event){
 					if(err){
 						res.sendStatus(500)

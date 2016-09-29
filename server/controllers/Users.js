@@ -52,7 +52,6 @@ module.exports = {
 	},
 	upcoming: function(req,res){
 		Event.find({_attendees:{$in:[req.session.current_user._id]}}).exec(function(err, user_events){
-			console.log(user_events)
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -61,19 +60,22 @@ module.exports = {
 		})
 	},
 	items: function(req,res){
-		User.findOne({_id:req.session.current_user._id}).exec(function(err, user){
+		Event.find({_attendees:{$in:[req.session.current_user._id]}}).exec(function(err, user_events){
 			if(err){
 				res.sendStatus(500)
 			}else{
-				Item.find({_event: {$in:user._events}}).populate('_users').exec(function(err, all_items){
+				var event_ids = []
+				for(var i = 0 ; i < user_events.length ; i++){
+					event_ids.push(user_events[i]._id)
+				}
+				Item.find({_event: {$in:event_ids}}).populate('_users').exec(function(err, all_items){
 					if(err){
 						res.sendStatus(500)
 					}else{
-						Item.find({_users: {$in:[user._id]}}).populate('_users').exec(function(err, user_items){
+						Item.find({_users: {$in:[req.session.current_user._id]}}).populate('_users').exec(function(err, user_items){
 							if(err){
 								res.sendStatus(500)
 							}else{
-								console.log(user_items)
 								var obj = {
 									user_items: user_items,
 									all_items: all_items
