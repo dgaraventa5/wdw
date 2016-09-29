@@ -346,4 +346,20 @@ h5{
 	border: gold solid 4px;
 }
 
+#user-profile-pic{
+	margin: 10% 0;
+	text-align: center;
+}
+#user-profile-pic img{
+	margin: 0 auto;
+	width: 50%;
+}
+
+.user-profile-connect-div p{
+	padding: 0.4em;
+	font-size: 1.2em;
+	border: 1px solid grey;
+	color: #0066ff;
+}
+
 
