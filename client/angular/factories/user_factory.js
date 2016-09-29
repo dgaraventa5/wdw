@@ -73,5 +73,17 @@ app.factory('userFactory', function($http){
 		})
 	}
 
+	factory.updateUser = function(user, field, callback){
+
+		$http({
+			method: "POST",
+			url: "/user",
+			data: {field:field, user:user}
+		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
+
 	return factory
 })

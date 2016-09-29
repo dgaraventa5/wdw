@@ -8,7 +8,6 @@ app.controller('usereventsController', ['$scope', '$location', '$routeParams', '
 	userFactory.getUserItems(function(items){
 		$scope.user_items = items.user_items
 		$scope.all_items = items.all_items
-		console.log(items)
 	})
 
 	$scope.upcomingFilter = function(prop){

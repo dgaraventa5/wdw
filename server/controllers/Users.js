@@ -87,5 +87,23 @@ module.exports = {
 				})
 			}
 		})
+	},
+	update: function(req,res){
+		User.findOne({_id:req.session.current_user._id}, function(err, user){
+			if(err){
+				res.sendStatus(400)
+			}else{
+				user[req.body.field] = req.body.user[req.body.field]
+				console.log(user)
+				user.save(function(err, saved_user){
+					if(err){
+						res.sendStatus(400)
+					}else{
+						req.session.current_user = saved_user
+						res.json(saved_user)
+					}
+				})
+			}
+		})
 	}
 }

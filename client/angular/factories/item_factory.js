@@ -81,5 +81,27 @@ app.factory('itemFactory', function($http){
 		})
 	}
 
+	factory.completeItem = function(item_id, callback){
+		var src = "/item/complete/"+item_id
+		$http({
+			method:"POST",
+			url:src
+		})
+		.then(function successCallback(res){
+			callback()
+		})
+	}
+
+	factory.uncompleteItem = function(item_id, callback){
+		var src = "/item/uncomplete/"+item_id
+		$http({
+			method:"POST",
+			url:src
+		})
+		.then(function successCallback(res){
+			callback()
+		})
+	}
+
 	return factory
 })

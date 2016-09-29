@@ -165,6 +165,9 @@ h5{
 		border-radius: 50%;
 		margin: 0% 0% 2% 2%;
 	}
+.completed-item{
+	background-color: rgba(0,0,0,0.3);
+}
 
 /* new event */
 .new-event-photo{
@@ -262,10 +265,10 @@ h5{
 	border: none;
 }
 
-/*notifications*/
 .notif-tab{
 	width: 49%;
 	text-align: center; 
+<<<<<<< HEAD
 	
 }
 .notif-item{
@@ -302,46 +305,5 @@ h5{
 	width: 100%;
 	border: lightgrey solid 1px;
 }
-#choose-event-pic-done-btn{
-	color: white;
-	background-color: #0066ff;
-	border: none;
-	position:fixed;
-	top: 1.75%;
-	right:2%;
-	z-index:1;
-}
-/*user-profile*/
-#user-profile-pic{
-	text-align: center;
-	height: 12em;
-	margin: 5% 0%;
-}
-	#user-profile-pic img{
-		height: 100%;
-	}
-
-#user-profile-form-div input{
-	text-align: right;
-}
-.user-profile-connect-div{
-	margin-top: 5%;
-	height: 3em;
-	border: lightgrey 1px solid;
-	border-radius: 3%;
-}
-	.user-profile-connect-div p{
-	margin-top: 3%;
-	font-size: 1.1em;
-	font-weight: bold;
-	color: #0066ff;
-}
-.user-profile-remove-connected-acct{
-	margin-top: 2%;
-	color: red;
-}
-
-
-
 
 

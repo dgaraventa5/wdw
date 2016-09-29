@@ -106,5 +106,37 @@ module.exports = {
 				})
 			}
 		})
+	},
+	complete: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				item.completed = true
+				item.save(function(err,saved_item){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						res.json(saved_item)
+					}
+				})
+			}
+		})
+	},
+	uncomplete: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
+			if(err){
+				res.sendStatus(500)
+			}else{
+				item.completed = false
+				item.save(function(err,saved_item){
+					if(err){
+						res.sendStatus(500)
+					}else{
+						res.json(saved_item)
+					}
+				})
+			}
+		})
 	}
 }

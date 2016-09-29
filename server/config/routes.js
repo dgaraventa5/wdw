@@ -21,6 +21,7 @@ module.exports = function(app){
 	app.get('/user/upcoming', users.upcoming)
 	app.get('/user/items', users.items)
 	app.get('/user/:id', users.show)
+	app.post('/user', users.update)
 
 	//Events Routes
 	app.get('/events', events.all)
@@ -40,6 +41,8 @@ module.exports = function(app){
 	app.post('/item/assign_me/:id', items.assign_user)
 	app.post('/item/remove_me/:id', items.remove_user)
 	app.post('/item/update_users/:id', items.update_users)
+	app.post('/item/complete/:id', items.complete)
+	app.post('/item/uncomplete/:id', items.uncomplete)
 
 
 }

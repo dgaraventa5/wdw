@@ -9,5 +9,4 @@ app.controller('notificationController', ['$scope', '$location', '$routeParams',
 		$location.path("/event/"+event_id)
 	}
 
-
 }])
