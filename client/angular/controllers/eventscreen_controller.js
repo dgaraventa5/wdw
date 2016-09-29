@@ -41,4 +41,19 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 		}
 		return true
 	}
+
+	$scope.completeItem = function(item_id){
+		itemFactory.completeItem(item_id, function(){
+			itemFactory.getEventItems($routeParams.eid, function(items){
+				$scope.event_items = items
+			})
+		})
+	}
+	$scope.uncompleteItem = function(item_id){
+		itemFactory.uncompleteItem(item_id, function(){
+			itemFactory.getEventItems($routeParams.eid, function(items){
+				$scope.event_items = items
+			})
+		})
+	}
 }])
