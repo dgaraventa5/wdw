@@ -156,6 +156,22 @@ h5{
 		margin: 2%;
 		font-size: 1.2em;
 	}
+
+.item-info{
+	display: inline-block;
+	width:85%;
+}
+.add-remove-icon{
+	margin-top:4%;
+	width:13%;
+	display: inline-block;
+}
+.add-me-btn{
+	color:#1aff1a;
+}
+.remove-me-btn{
+	color:red;
+}
 	.assign-user{
 		margin: 2% 0% 2% 2%;
 	}

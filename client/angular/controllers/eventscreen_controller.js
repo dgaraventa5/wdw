@@ -16,6 +16,7 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 		itemFactory.newItem($routeParams.eid, $scope.new_item, function(){
 			itemFactory.getEventItems($routeParams.eid, function(items){
 				$scope.event_items = items
+				$scope.new_item = null
 			})
 		})
 	}

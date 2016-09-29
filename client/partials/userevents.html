@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<h5>Past Events</h5>
-		<div class="row event" ng-repeat="event in user_events | filter:pastFilter('date')">
+		<div class="row event" ng-repeat="event in user_events | filter:pastFilter('date')" ng-click='getEvent(event._id)'>
 			<div class="col-xs-4">
 				<img class="img-rounded event-image" src="/assets/images/tailgate_pic.jpg">
 			</div>

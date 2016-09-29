@@ -31,6 +31,7 @@ module.exports = function(app){
 	app.post('/event/:id', events.edit)
 	app.post('/event/attendees/:id', events.update_attendees)
 	app.post('/event/admins/:id', events.add_admins)
+	app.post('/event/image/:id', events.update_image)
 	app.post('/event/delete/:id', events.delete)
 
 	//Items Routes

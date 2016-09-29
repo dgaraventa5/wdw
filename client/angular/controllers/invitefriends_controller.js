@@ -4,7 +4,6 @@ app.controller('invitefriendsController', ['$scope', '$location', '$routeParams'
 	})
 	userFactory.getUsers(function(users){
 		$scope.users = users
-		console.log(users)
 	})
 	$scope.addToAttendees = function(user_id){
 		$scope.event._attendees.push(user_id)
@@ -16,7 +15,12 @@ app.controller('invitefriendsController', ['$scope', '$location', '$routeParams'
 			}
 		}
 	}
-
+	$scope.allFriends = function(){
+		$scope.event._attendees = []
+		for(var i=0 ; i < $scope.users.length ; i++){
+			$scope.event._attendees.push($scope.users[i]._id)
+		}
+	}
 	$scope.updateAttendees = function(){
 		eventFactory.updateAttendees($routeParams.eid, $scope.event._attendees, function(){
 			$location.path("/event/photo/" + $routeParams.eid);
