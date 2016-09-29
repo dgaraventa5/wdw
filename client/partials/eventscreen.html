@@ -24,16 +24,20 @@
 				</div>
 			<!-- ng-repeat this div for items-->
 				<div class="col-xs-10 col-xs-offset-1 show-event-item" ng-repeat="item in event_items" ng-if="!item.completed">
-					<p>
-						<i class="fa fa-circle-thin" aria-hidden="true" ng-click='completeItem(item._id)'></i>
-						{{item.description}}
-					</p>
-					<p>
-						<a href='#/item/assign/{{item._id}}' ng-if="current_user._id == event._host._id"><i class="fa fa-user-plus fa-fw fa-lg pull-right assign-user" aria-hidden="true"></i></a>
-						<i class="fa fa-user-plus fa-fw fa-lg pull-right assign-user" aria-hidden="true" ng-if="current_user._id != event._host._id && itemCheck(item._users)" ng-click="assignMe(item._id)"></i>
-						<i class="fa fa-user-times fa-fw fa-lg pull-right assign-user" aria-hidden="true" ng-if="current_user._id != event._host._id && !itemCheck(item._users)" ng-click="removeMe(item._id)"></i>
-						<img ng-repeat="user in item._users" class="profile-pic pull-right" src="{{user.image}}">
-					</p>
+					<div class='item-info'>
+						<p>
+							<i class="fa fa-circle-thin" aria-hidden="true" ng-click='completeItem(item._id)'></i>
+							{{item.description}}
+						</p>
+						<p>
+							<img ng-repeat="user in item._users" class="profile-pic" src="{{user.image}}">
+						</p>
+					</div>
+					<div class='add-remove-icon pull-right'>
+						<a href='#/item/assign/{{item._id}}' ng-if="current_user._id == event._host._id"><i class="fa fa-user-plus fa-fw fa-lg assign-user pull-right" aria-hidden="true"></i></a>
+						<i class="fa fa-user-plus fa-fw fa-lg assign-user pull-right add-me-btn" aria-hidden="true" ng-if="current_user._id != event._host._id && itemCheck(item._users)" ng-click="assignMe(item._id)"></i>
+						<i class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true" ng-if="current_user._id != event._host._id && !itemCheck(item._users)" ng-click="removeMe(item._id)"></i>
+					</div>
 				</div>
 				<div class="col-xs-10 col-xs-offset-1 show-event-item completed-item" ng-repeat="item in event_items" ng-if="item.completed">
 					<p>
