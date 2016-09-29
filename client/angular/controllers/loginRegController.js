@@ -25,7 +25,7 @@ app.controller('loginRegController', ['$scope', '$location', 'userFactory', func
 		  var user = result.user.providerData[0];
 
 		  userFactory.login(user, function(){
-		  	$location.path("/events")
+		  	$location.path("/")
 		  })
 
 		}).catch(function(error) {
