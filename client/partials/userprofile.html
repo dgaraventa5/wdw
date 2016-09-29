@@ -1,23 +1,23 @@
-<div class="scrollable">
+<div class="scrollable" ng-controller='userprofileController'>
 	<div class="scrollable-content">
 		<div id="user-profile-pic" class="col-xs-12">
-			<img class="img-circle" src="/assets/images/poolparty.jpg">
+			<img class="img-circle" ng-src="{{current_user.image}}">
 		</div>
 		<div id="user-profile-form-div" class="col-xs-12">		
 			<form class="form-horizontal">
 				<div class="form-group">
 					<label class="col-xs-2 control-label">Name</label>
 					<div class="col-xs-10">
-						<input type="text" class="form-control" name="name" value="Dom Garaventa">
+						<input type="text" class="form-control" ng-model='current_user.name' ng-change="updateUser('name')">
 					</div>
 					<label class="col-xs-2 control-label">Email</label>
 					<div class="col-xs-10">	
-						<input type="text" class="form-control" name="email" value="dom@ballislife.com">
+						<input type="text" class="form-control" ng-model="current_user.email" ng-change="updateUser('email')">
 					</div>
 					
 					<label class="col-xs-2 control-label">Phone</label>
 					<div class="col-xs-10">	
-						<input type="text" class="form-control" name="phone" value="3XS-BLK-BELT">
+						<input type="text" class="form-control" ng-model="current_user.phone" ng-change="updateUser('phone')">
 					</div>
 				</div>
 			</form>

@@ -46,27 +46,13 @@ module.exports = {
 
 		var new_event = new Event(event)
 
-		User.findOne({_id:req.session.current_user._id}, function(err, user){
+		new_event.save(function(err, saved_event){
 			if(err){
-				res.sendStatus(500)
+				res.sendStatus(400)
 			}else{
-				new_event.save(function(err, saved_event){
-					if(err){
-						res.sendStatus(400)
-					}else{
-						user._events.push(saved_event._id)
-						user.save(function(err, saved_user){
-							if(err){
-								res.sendStatus(500)
-							}else{
-								res.json(saved_event)
-							}
-						})
-					}
-				})
+				res.json(saved_event)
 			}
 		})
-
 	},
 	update_attendees: function(req,res){
 		Event.findOne({_id:req.params.id}, function(err,event){

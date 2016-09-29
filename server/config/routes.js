@@ -21,6 +21,7 @@ module.exports = function(app){
 	app.get('/user/upcoming', users.upcoming)
 	app.get('/user/items', users.items)
 	app.get('/user/:id', users.show)
+	app.post('/user', users.update)
 
 	//Events Routes
 	app.get('/events', events.all)
