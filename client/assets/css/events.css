@@ -252,14 +252,82 @@ h5{
 	border: none;
 }
 
+/*notifications*/
 .notif-tab{
 	width: 49%;
 	text-align: center; 
 	
 }
-.notif-tab-data{
-	overflow-x: hidden;
+.notif-item{
+	border-bottom: lightgrey solid 1px;
 }
-/*notifications*/
+	.notif-item p{
+		margin: 5% 0%;
+	}
+
+.notif-profile-pic{
+		width: 2.25em;
+		height: 2.25em;
+		border-radius: 50%;
+		margin: 0% 2% 2% 2%;
+	}
+
+/*choose photo*/
+.event-pics-div{
+	margin-top: 5%;
+}
+
+.choose-event-pic-div {
+	margin-bottom: 5%;
+	text-align: center;
+	height: 10em;
+}
+
+.choose-event-pic-div img{
+	height: 100%;
+	width: 100%;
+	border: lightgrey solid 1px;
+}
+#choose-event-pic-done-btn{
+	color: white;
+	background-color: #0066ff;
+	border: none;
+	position:fixed;
+	top: 1.75%;
+	right:2%;
+	z-index:1;
+}
+/*user-profile*/
+#user-profile-pic{
+	text-align: center;
+	height: 12em;
+	margin: 5% 0%;
+}
+	#user-profile-pic img{
+		height: 100%;
+	}
+
+#user-profile-form-div input{
+	text-align: right;
+}
+.user-profile-connect-div{
+	margin-top: 5%;
+	height: 3em;
+	border: lightgrey 1px solid;
+	border-radius: 3%;
+}
+	.user-profile-connect-div p{
+	margin-top: 3%;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #0066ff;
+}
+.user-profile-remove-connected-acct{
+	margin-top: 2%;
+	color: red;
+}
+
+
+
 
 

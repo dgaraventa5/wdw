@@ -4,4 +4,7 @@ app.controller('neweventController', ['$scope', '$location', '$routeParams', 'ev
 			$location.path("/event/attendees/"+event._id)
 		})
 	}
+	$scope.choosePic = function(){
+		
+	}
 }])

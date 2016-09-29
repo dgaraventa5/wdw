@@ -11,19 +11,21 @@
 		  </ul>
 
 		  <div ui-if="activeTab == 1">
-		    <h3 class="page-header">Tab 1</h3>
 		    <div class="row">
 		    	<div class="col-xs-12 all-items">
-		    		{{all_items}}
+		    		<div class="notif-item" ng-repeat="item in all_items">
+		    			<p><img ng-repeat="user in item._users" class="notif-profile-pic pull-left" src="{{user.image}}">{{item._users[0].name}} was assigned to bring {{item.description}}.</p>
+		    		</div>
 		    	</div>
 		    </div>
-		    <p><!-- ... --></p>
 		  </div>
-
 		  <div ui-if="activeTab == 2">
-		    <h3 class="page-header">Tab 2</h3>
-		    <div class="notif-tab-data">
-		    	{{user_items}}
+		  	<div class="row">
+		    	<div class="col-xs-12 user-items">
+		    		<div class="notif-item" ng-repeat="item in user_items">
+		    			<p><img ng-repeat="user in item._users" class="notif-profile-pic pull-left" src="{{user.image}}">You were assigned to bring {{item.description}}.</p>
+		    		</div>
+		    	</div>
 		    </div>
 		  </div>
 		</div>

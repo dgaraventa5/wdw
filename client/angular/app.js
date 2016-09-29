@@ -26,6 +26,9 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/newevent',{
 		templateUrl: 'partials/newevent.html'
 	})
+	.when('/chooseeventphoto',{
+		templateUrl: 'partials/chooseeventphoto.html'
+	})
 	.when('/event/attendees/:eid',{
 		templateUrl: 'partials/invitefriends.html'
 	})
@@ -34,6 +37,9 @@ app.config(function($routeProvider, $httpProvider){
 	})
 	.when('/item/assign/:iid',{
 		templateUrl: 'partials/itemfriends.html'
+	})
+	.when('/userprofile',{
+		templateUrl: 'partials/userprofile.html'
 	})
 	.otherwise({
 		redirectTo: '/'
