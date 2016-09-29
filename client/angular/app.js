@@ -1,5 +1,7 @@
 var app = angular.module('app', ['ngRoute', 'ngTouch', 'mobile-angular-ui']);
-app.config(function($routeProvider, $httpProvider){
+app.config(function($routeProvider, $httpProvider, $touchProvider){
+	$touchProvider.ngClickOverrideEnabled(true);
+
 	$httpProvider.interceptors.push(
 		function($q, $location){
 			return{
@@ -12,6 +14,7 @@ app.config(function($routeProvider, $httpProvider){
 			}
 		}
 	);
+	
 	$routeProvider
 	.when('/',{
 		templateUrl: 'partials/loginreg.html',
