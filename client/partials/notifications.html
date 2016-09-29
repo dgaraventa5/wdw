@@ -24,7 +24,7 @@
 		  	<div class="row">
 		    	<div class="col-xs-12 user-items">
 		    		<div class="notif-item" ng-repeat="item in user_items" ng-click="getEvent(item._event)">
-		    			<p><img ng-repeat="user in item._users" class="notif-profile-pic pull-left" src="{{user.image}}">You were assigned to bring {{item.description}}.</p>
+		    			<p><img class="notif-profile-pic pull-left" src="{{item._users[0].image}}">You were assigned to bring {{item.description}}.</p>
 		    		</div>
 		    	</div>
 		    </div>

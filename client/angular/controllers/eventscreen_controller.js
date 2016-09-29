@@ -60,4 +60,7 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 			})
 		})
 	}
+	$scope.changeImage = function(){
+		$location.path("/event/photo/" + $routeParams.eid);
+	}
 }])

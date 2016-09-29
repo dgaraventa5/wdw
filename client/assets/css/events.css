@@ -135,6 +135,12 @@ h5{
 		text-align: center;
 		margin: 20% auto;
 	}
+
+#change-event-photo{
+	background-color: white;
+	font-weight: bold;
+	padding: 1%;
+}
 .show-event-items-div{
 	margin-top: 1%;
 }
@@ -211,12 +217,16 @@ h5{
 	right: 2%;
 }
 .new-event-details{
-	margin-top: .5em;
+	margin-top: 2em;
 }
 #invite-friends-btn{
-	color: #0066ff;
-	border-color: #0066ff;
-	background-color: white;
+	margin: 1em 0em;
+	
+}
+#new-event-warning{
+	margin-top: 2em;
+	text-align: center;
+	color: red;
 }
 .create-event-btn{
 	background-color: white;
