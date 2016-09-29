@@ -26,7 +26,10 @@ app.config(function($routeProvider, $httpProvider){
 	.when('/newevent',{
 		templateUrl: 'partials/newevent.html'
 	})
-	.when('/chooseeventphoto',{
+	.when('/neweventinvitefriends',{
+		templateUrl: 'partials/invitefriends.html'
+	})
+	.when('/event/photo/:eid',{
 		templateUrl: 'partials/chooseeventphoto.html'
 	})
 	.when('/event/attendees/:eid',{

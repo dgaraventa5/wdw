@@ -19,7 +19,7 @@ app.controller('invitefriendsController', ['$scope', '$location', '$routeParams'
 
 	$scope.updateAttendees = function(){
 		eventFactory.updateAttendees($routeParams.eid, $scope.event._attendees, function(){
-			$location.path("/event/"+$routeParams.eid)
-		})
+			$location.path("/event/photo/" + $routeParams.eid);
+		});
 	}
 }])

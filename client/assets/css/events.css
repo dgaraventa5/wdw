@@ -233,7 +233,7 @@ h5{
 	background-color: #5bd75b;
 	margin-bottom: 5%;
 }
-#invite-friends-done-btn{
+#invite-friends-done-btn, #choose-event-img-done-btn{
 	color: white;
 	background-color: #0066ff;
 	border: none;
@@ -268,7 +268,6 @@ h5{
 .notif-tab{
 	width: 49%;
 	text-align: center; 
-<<<<<<< HEAD
 	
 }
 .notif-item{
