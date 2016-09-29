@@ -9,12 +9,13 @@
 		      <a ui-set="{'activeTab': 2}">Personal</a>
 		    </li>
 		  </ul>
-
+ 
 		  <div ui-if="activeTab == 1">
 		    <div class="row">
 		    	<div class="col-xs-12 all-items">
-		    		<div class="notif-item" ng-repeat="item in all_items">
-		    			<p><img ng-repeat="user in item._users" class="notif-profile-pic pull-left" src="{{user.image}}">{{item._users[0].name}} was assigned to bring {{item.description}}.</p>
+		    		<div class="notif-item" ng-repeat="item in all_items" ng-click="getEvent(item._event)">
+		    			<p ng-if="item._users.length == 0"><img id="notif-no-assigned-user" class="notif-profile-pic pull-left" src="/assets/images/sunglassesemoji.png">{{item.description}} was added to an event list. Want to volunteer? <a href="#/event/{{item._event}}">Go to event page.</a></p>
+		    			<p ng-if="item._users.length > 0"><img class="notif-profile-pic pull-left" src="{{item._users[0].image}}">{{item._users[0].name}} was assigned to bring {{item.description}}.</p>
 		    		</div>
 		    	</div>
 		    </div>
@@ -22,7 +23,7 @@
 		  <div ui-if="activeTab == 2">
 		  	<div class="row">
 		    	<div class="col-xs-12 user-items">
-		    		<div class="notif-item" ng-repeat="item in user_items">
+		    		<div class="notif-item" ng-repeat="item in user_items" ng-click="getEvent(item._event)">
 		    			<p><img ng-repeat="user in item._users" class="notif-profile-pic pull-left" src="{{user.image}}">You were assigned to bring {{item.description}}.</p>
 		    		</div>
 		    	</div>

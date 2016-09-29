@@ -60,25 +60,35 @@ body, html{
 .events-div{
 	padding: 2%;
 }
+#create-new-event {
+	margin: 5% 0%;
+}
+.event-image-div{
+	padding-right: 0%;
+}
+#create-new-event h4{
+	margin: 0%;
+}
 .event{
 	margin: 1% 0%;
 	border: 1px lightgrey solid;
 	border-radius: 3%;
-	padding: 1% 0%;
+	padding: 5% 0%;
 }
 .event-image{
-	background-image: url("/assets/images/tailgate_pic.jpg");
-	background-size: 100%; 
 	background-repeat: no-repeat;
     background-position: center center; 
-    height: 90%;
+    height: 5em;
+    width: 6em;
 }
 .title{
 	text-indent: 3%;
 	text-align: center;
+
 }
 	.title h4{
 		margin: 5% auto;
+		font-size: 1.4em;
 	}
 	.title p{
 		margin-bottom: 0%;
@@ -271,6 +281,10 @@ h5{
 		border-radius: 50%;
 		margin: 0% 2% 2% 2%;
 	}
+#notif-no-assigned-user{
+	width: 2.5em;
+	height: 2.5em;
+}
 
 /*choose photo*/
 .event-pics-div{
