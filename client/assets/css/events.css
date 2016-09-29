@@ -330,5 +330,8 @@ h5{
 	width: 100%;
 	border: lightgrey solid 1px;
 }
+.chosen-pic-div img{
+	border: gold solid 4px;
+}
 
 
