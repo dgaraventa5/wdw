@@ -28,10 +28,9 @@
 					<div class='item-info'>
 						<p>
 							<i class="fa fa-circle-thin" aria-hidden="true" ng-click='completeItem(item._id)'></i>
-							{{item.description}}
-						</p>
-						<p>
-							<img ng-repeat="user in item._users" class="profile-pic" src="{{user.image}}">
+							<span ng-click="showItem(item._id)">{{item.description}}</span>
+							<img ng-if="item._users.length == 1" class="profile-pic pull-right" src="{{item._users[0].image}}">
+							<span ng-if="item._users.length > 1" class="profile-pic-number pull-right">{{item._users.length}}</span>
 						</p>
 					</div>
 					<div class='add-remove-icon pull-right'>

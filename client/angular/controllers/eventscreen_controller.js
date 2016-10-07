@@ -38,12 +38,13 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 		})
 	}
 	$scope.itemCheck = function(users){
-		for(var i = 0 ; i < users.length ; i++){
+		console.log("users: " + users);
+		for(var i = 0 ; i < users.length; i++){
 			if (users[i]._id == $scope.current_user._id){
-				return false
+				return false;
 			}
 		}
-		return true
+		return true;
 	}
 
 	$scope.completeItem = function(item_id){
@@ -62,5 +63,8 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 	}
 	$scope.changeImage = function(){
 		$location.path("/event/photo/" + $routeParams.eid);
+	}
+	$scope.showItem = function(item_id){
+		$location.path("item/" + item_id);
 	}
 }])

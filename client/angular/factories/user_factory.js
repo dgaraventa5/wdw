@@ -27,6 +27,7 @@ app.factory('userFactory', function($http){
 			url:"/current_user"
 		})
 		.then(function successCallback(res){
+			console.log("current user:" + res.data);
 			callback(res.data)
 		})
 	}

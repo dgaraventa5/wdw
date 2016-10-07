@@ -14,6 +14,7 @@ module.exports = {
 		})
 	},
 	show: function(req,res){
+		console.log(req.session.current_user);
 		Event.findOne({_id:req.params.id}).populate('_host').populate('_admins').exec(function(err, event){
 			if(err){
 				res.sendStatus(500)

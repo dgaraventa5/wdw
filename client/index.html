@@ -33,31 +33,37 @@
     <script src="angular/controllers/notification_controller.js"></script>
     <script src="angular/controllers/userprofile_controller.js"></script>
     <script src="angular/controllers/chooseeventphoto_controller.js"></script>
+    <script src="angular/controllers/itemscreen_controller.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/assets/css/events.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body ng-app="app">
-	<div class="app container">
-      <div class="navbar navbar-app navbar-absolute-top">
-          <img src="/assets/images/wdw_top.png">
-      </div>
-      <div class="navbar navbar-app navbar-absolute-bottom">
-        <div class="btn-group justified">
-          <a href="#/notifications" class="btn btn-navbar btn-icon-only"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-          <a href="#/events" class="btn btn-navbar btn-icon-only"><i class="fa fa-calendar" aria-hidden="true"></i></a>
-          <a href="#/userprofile" class="btn btn-navbar btn-icon-only"><i class="fa fa-user" aria-hidden="true"></i></a>
-        </div>   
-      </div>
+  <div class="desktop-only">
+      <img src="/assets/images/wdw_top.png">
+      <h3>The "Social" To-Do List</h3>
+      <h4>Sorry, currently our site is only accessible from your smartphone. Don't worry, desktop and tablet versions are coming soon! Thanks for being patient.</h4>
+  </div>
+	<div class="app container mobile-only">
+    <div class="navbar navbar-app navbar-absolute-top">
+        <img src="/assets/images/wdw_top.png">
+    </div>
+    <div class="navbar navbar-app navbar-absolute-bottom">
+      <div class="btn-group justified">
+        <a href="#/notifications" class="btn btn-navbar btn-icon-only"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+        <a href="#/events" class="btn btn-navbar btn-icon-only"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+        <a href="#/userprofile" class="btn btn-navbar btn-icon-only"><i class="fa fa-user" aria-hidden="true"></i></a>
+      </div>   
+    </div>
       <!-- App body -->
-      <div class='app-body'>
-        <div class='app-content'>
-          <ng-view>
-            
-          </ng-view>
-        </div>
+    <div class='app-body'>
+      <div class='app-content'>
+        <ng-view>
+          
+        </ng-view>
       </div>
-    </div><!-- ~ .app -->
+    </div>
+  </div><!-- ~ .app -->
 
     <!-- Modals and Overlays -->
     <div ui-yield-to="modals"></div>

@@ -50,6 +50,9 @@ app.config(function($routeProvider, $httpProvider, $touchProvider){
 	.when('/userprofile',{
 		templateUrl: 'partials/userprofile.html'
 	})
+	.when('/item/:iid',{
+		templateUrl: 'partials/itemscreen.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

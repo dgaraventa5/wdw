@@ -5,7 +5,7 @@ var Item = mongoose.model('Item');
 
 module.exports = {
 	show: function(req,res){
-		Item.findOne({_id:req.params.id}).exec(function(err, item){
+		Item.findOne({_id:req.params.id}).populate('_users').exec(function(err, item){
 			if(err){
 				res.sendStatus(500)
 			}else{
@@ -81,11 +81,19 @@ module.exports = {
 					if(err){
 						res.sendStatus(500)
 					}else{
-						res.json(saved_item)
+						User.findOne({_id: req.session.current_user._id}, function(err,user){
+							if(err){
+								console.log("didn't find user");
+							}else{
+								console.log("found user");
+								user._items.push(item._id);
+								res.json(saved_item);
+							}
+						});
 					}
-				})
+				});
 			}
-		})
+		});
 	},
 	remove_user: function(req,res){
 		Item.findOne({_id:req.params.id}, function(err, item){

@@ -2,6 +2,24 @@ body, html{
 	height: 100%;
 }
 
+/*only let mobile views use site*/
+.mobile-only{
+	display: none;
+}
+.desktop-only{
+	display: none;
+	text-align: center;
+	color: white;
+	background-color: #0066ff;
+	height: 100%;
+}
+@media only screen and (max-device-width: 450px){
+	.mobile-only{display: block;}
+}
+@media only screen and (min-device-width: 451px){
+	.desktop-only{display: block;}
+}
+
 #welcome-div{
 	background-image: url("/assets/images/poolparty.jpg");
 	background-size: ;
@@ -200,6 +218,15 @@ h5{
 		border-radius: 50%;
 		margin: 0% 0% 2% 2%;
 	}
+.profile-pic-number{
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	margin: 0% 0% 2% 2%;
+	border: 1px solid #0066ff;
+	color: #0066ff;
+	text-align: center;
+}
 .completed-item{
 	background-color: rgba(0,0,0,0.3);
 }
@@ -362,5 +389,35 @@ h5{
 	border: 1px solid grey;
 	color: #0066ff;
 }
+
+/* item screen */
+.show-item-div{
+	text-align: center;
+}
+	.show-item-div h3{
+		margin: 5% 0%;
+	}
+.show-item-assigned-users-div{
+	text-align: left;
+}
+#assigned-to{
+	text-indent: 3%;
+	margin-bottom: 5%;
+}
+.show-item-profile-pic{
+	margin-right: 3%;
+}
+.assigned-user{
+	padding: 2% 0%;
+}
+#show-item-comments-div{
+	margin-top: 50%;
+}
+#assign-another-user{
+	margin-top: 10%;
+	color: #0066ff;
+}
+
+
 
 
