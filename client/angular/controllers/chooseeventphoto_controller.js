@@ -2,6 +2,10 @@ app.controller('chooseEventPhotoController', ['$scope', '$location', '$routePara
 
 	$scope.images = [
 		{
+			name: 'sunglassesemoji.png',
+			url: '/assets/images/sunglassesemoji.png'
+		},
+		{
 			name: 'fireomgemoji.jpg',
 			url: '/assets/images/fireomgemoji.jpg'
 		},

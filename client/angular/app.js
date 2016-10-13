@@ -14,7 +14,6 @@ app.config(function($routeProvider, $httpProvider, $touchProvider){
 			}
 		}
 	);
-
 	$routeProvider
 	.when('/', {
 		redirectTo: '/events'

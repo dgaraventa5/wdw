@@ -1,30 +1,33 @@
 
 <div class="scrollable" ng-controller='usereventsController'>
-	<div class="scrollable-content events-div">
-		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1">
-				<a href="#/newevent"><button type="button" id="create-new-event" class="btn-success btn-lg btn-block"><h4>Create New Event</h4></button></a>
+	<div id="events-background-photo" class="scrollable-content">
+		<div class="events-div-background container">
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1">
+					<a href="#/newevent"><button type="button" id="create-new-event" class="btn-success btn-lg btn-block"><h4>Create New Event</h4></button></a>
+				</div>
 			</div>
-		</div>
-		<h5>Upcoming Events</h5>
-		<div class="row event" ng-repeat="event in user_events | filter:upcomingFilter('date')" ng-click='getEvent(event._id)'>
-			<div class="col-xs-4 event-image-div">
-				<img class="img-rounded event-image" ng-src="{{event.image}}">
+			<h5>Upcoming Events</h5>
+			<div class="row event" ng-repeat="event in user_events | filter:upcomingFilter('date')" ng-click='getEvent(event._id)'>
+				<div class="col-xs-4 event-image-div">
+					<img class="img-rounded event-image" ng-src="{{event.image}}">
+				</div>
+				<div class="col-xs-8 title">
+					<h4>{{event.name}}</h4>
+					<p>{{event.date | date : "MMM d"}} |  {{event.time | date : "shortTime"}} | {{event._attendees.length}} attendees</p>
+				</div>
 			</div>
-			<div class="col-xs-8 title">
-				<h4>{{event.name}}</h4>
-				<p>{{event.date | date : "MMM d"}} |  {{event.time | date : "shortTime"}} | {{event._attendees.length}} attendees</p>
+			<h5>Past Events</h5>
+			<div class="row event" ng-repeat="event in user_events | filter:pastFilter('date')" ng-click='getEvent(event._id)'>
+				<div class="col-xs-4 event-image-div">
+					<img class="img-rounded event-image" ng-src="{{event.image}}">
+				</div>
+				<div class="col-xs-8 title">
+					<h4>{{event.name}}</h4>
+					<p>{{event.date | date : "MM/dd"}} | {{event._attendees.length}} attendees | 3 items</p>
+				</div>
 			</div>
-		</div>
-		<h5>Past Events</h5>
-		<div class="row event" ng-repeat="event in user_events | filter:pastFilter('date')" ng-click='getEvent(event._id)'>
-			<div class="col-xs-4 event-image-div">
-				<img class="img-rounded event-image" ng-src="{{event.image}}">
-			</div>
-			<div class="col-xs-8 title">
-				<h4>{{event.name}}</h4>
-				<p>{{event.date | date : "MM/dd"}} | {{event._attendees.length}} attendees | 3 items</p>
-			</div>
+			<a ng-click="logout()" id="event-screen-invite-friends-btn">Logout</a>
 		</div>
 	</div>
 </div>

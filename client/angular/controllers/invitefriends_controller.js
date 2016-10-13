@@ -21,9 +21,13 @@ app.controller('invitefriendsController', ['$scope', '$location', '$routeParams'
 			$scope.event._attendees.push($scope.users[i]._id)
 		}
 	}
+	$scope.uninviteAllFriends = function(){
+		$scope.event._attendees = [];
+		$scope.event._attendees.push($scope.event._host._id);
+	}
 	$scope.updateAttendees = function(){
 		eventFactory.updateAttendees($routeParams.eid, $scope.event._attendees, function(){
-			$location.path("/event/photo/" + $routeParams.eid);
+			$location.path("/event/" + $routeParams.eid);
 		});
 	}
 }])

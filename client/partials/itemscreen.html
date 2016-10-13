@@ -1,20 +1,27 @@
 <div ng-controller="itemScreenController" class="scrollable">
-	<div class="scrollable-content show-item-div">
-		<h3>{{item.description}}</h3>
-		<div class="show-item-assigned-users-div">
-			<h4 class="assigned-to">Assigned to:</h4>
-			<h4 class="assigned-user" ng-repeat="user in item._users">
-				{{user.name}}
-				<img class="profile-pic show-item-profile-pic pull-left" src="{{user.image}}">
-				<i class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
-			</h4>
-		</div>
-			<h4 id="assign-another-user" class="assigned-to">Assign Another Person?
-<!-- 			<i class="fa fa-user-plus fa-fw fa-lg assign-user" aria-hidden="true"></i> -->
-			</h4>
-		<div id="show-item-comments-div">
-			<p>Comments coming soon!</p>
+	<div class="scrollable-content item-screen-background">
+		<div class="show-item-div container">
+			<h4>Event: {{event.name}}</h4>
+			<h4>Task: {{item.description}}</h4>
+			<div ng-if="item._users.length > 0" class="show-item-assigned-users-div">
+				<p class="assigned-to">Assigned to:</p>
+				<p class="assigned-user" ng-repeat="user in item._users">
+					{{user.name}}
+					<img class="profile-pic show-item-profile-pic pull-left" ng-src="{{user.image}}">
+					<i ng-if="current_user == user" ng-click="removeMe(item._id)" class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
+					<i ng-if="current_user._id == event._host._id" ng-click="removeUser(user, item._id)" class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
+				</p>
+			</div> 
+				<p ng-if="item._users.length > 0 && current_user._id == event._host._id" id="assign-another-user" class="assigned-to"><a href="#/item/assign/{{item._id}}">Edit Who's Doing This
+				<i class="fa fa-user-plus fa-fw fa-lg assign-user" aria-hidden="true"></i></a>
+				</p>
+				<p ng-if="item._users.length == 0" id="assign-another-user" class="assigned-to"><a href="#/events">Assign Someone
+				<i class="fa fa-user-plus fa-fw fa-lg assign-user" aria-hidden="true"></i></a>
+				</p>
+			<div id="show-item-comments-div">
+				<!-- <p>Comments coming soon!</p> -->
+			</div>
+			<a id="event-screen-back-btn" href="#/event/{{item._event}}"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
 		</div>
 	</div>
-
 </div>

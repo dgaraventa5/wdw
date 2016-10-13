@@ -5,30 +5,29 @@
 			<!--search for friend-->
 				<div class="col-xs-10 col-xs-offset-1 new-event-item">
 					<div class="input-group">
-				      <input type="text" class="form-control" id="invite-friend-search" placeholder="Search for friend...">
-				      <span class="input-group-btn">
-				        <button id="add-item-btn" class="btn btn-secondary" type="button">Go</button>
-				      </span>
+				      <input type="text" class="form-control" id="invite-friend-search" placeholder="Search for friend..." ng-model="friendsFilter">
 				    </div>
 				</div>
 				<div class="col-xs-10 col-xs-offset-1">
-					<p id="friends-header">Invite Friends</p>
+					<p id="friends-header">Assign Attendees</p>
 				</div>
 				<!-- invite all friends button -->
 				<div class="col-xs-8 col-xs-offset-2">
-					<button type="button" id="invite-all-friends" class="btn btn-block">Invite All Friends</button>
+					<button ng-if="item._users.length < attendees.length" ng-click="assignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Assign All Attendees</button>
+					<button ng-if="item._users.length == attendees.length" ng-click="unassignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Unassign All Attendees</button>
 				</div>
 			<!-- ng-repeat this div for friends-->
-				<div ng-repeat="user in attendees">
-					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!item._users.includes(user._id)" ng-click="addToUsers(user._id)">
+				<div ng-repeat="user in attendees |filter:friendsFilter">
+					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!userAssigned(user, item._users)" ng-click="addToUsers(user)">
 						<p>
 							<img class="profile-pic" ng-src="{{user.image}}">
 							{{user.name}}
 							<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
 						</p>
 					</div>
-					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="item._users.includes(user._id)" ng-click="removeFromUsers(user._id)">
+					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="userAssigned(user, item._users)" ng-click="removeFromUsers(user)">
 						<p>
+							{{user.id}}
 							<img class="profile-pic" ng-src="{{user.image}}">
 							{{user.name}}
 							<i class="fa fa-times-circle fa-lg pull-right" aria-hidden="true"></i>

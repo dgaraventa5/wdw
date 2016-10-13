@@ -80,6 +80,16 @@ app.factory('itemFactory', function($http){
 			callback()
 		})
 	}
+	factory.removeUser = function(user_id, item_id, callback){
+		var src = "/item/remove_user/" + item_id + "/" + user_id;
+		$http({
+			method: "POST",
+			url: src
+		})
+		.then(function successCallback(res){
+			callback();
+		});
+	}
 
 	factory.completeItem = function(item_id, callback){
 		var src = "/item/complete/"+item_id

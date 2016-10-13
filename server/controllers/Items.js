@@ -18,7 +18,8 @@ module.exports = {
 			if(err){
 				res.sendStatus(500)
 			}else{
-				res.json(items)
+				console.log("items: " + items);
+				res.json(items);
 			}
 		})
 	},
@@ -114,6 +115,27 @@ module.exports = {
 				})
 			}
 		})
+	},
+	remove_other_user: function(req,res){
+		Item.findOne({_id:req.params.id}, function(err, item){
+			if (err) {
+				res.sendStatus(500)
+			}else{
+				// if (req.session.current_user._id != ) {}
+				for(var i=0; i<item._users.length; i++){
+					if (item._users[i] == req.params.uid) {
+						item._users.splice(i, 1);
+					}
+				}
+				item.save(function(err, saved_item){
+					if (err) {
+						res.sendStatus(500);
+					}else{
+						res.json(saved_item);
+					}
+				});
+			}
+		});
 	},
 	complete: function(req,res){
 		Item.findOne({_id:req.params.id}, function(err, item){

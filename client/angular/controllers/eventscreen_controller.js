@@ -9,7 +9,7 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 		$scope.users = users
 	})
 	userFactory.getCurrentUser(function(user){
-		$scope.current_user = user
+		$scope.current_user = user 
 	})
 	itemFactory.getEventItems($routeParams.eid, function(items){
 		$scope.event_items = items
@@ -37,14 +37,16 @@ app.controller('eventscreenController', ['$scope', '$location', '$routeParams', 
 			})
 		})
 	}
-	$scope.itemCheck = function(users){
-		console.log("users: " + users);
-		for(var i = 0 ; i < users.length; i++){
-			if (users[i]._id == $scope.current_user._id){
-				return false;
+	$scope.userAssigned = function(user, item_users){
+
+		if (item_users.length > 0) {
+			for (var i=0; i < item_users.length; i++){
+				if (item_users[i]._id == user._id) {
+					return true;
+				}
 			}
 		}
-		return true;
+		return false;
 	}
 
 	$scope.completeItem = function(item_id){

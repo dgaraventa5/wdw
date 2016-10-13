@@ -11,7 +11,15 @@ app.factory('userFactory', function($http){
 			callback()
 		})
 	}
-
+	factory.logout = function(callback){
+		$http({
+			method:"GET",
+			url:"/logout"
+		})
+		.then(function successCallback(res){
+			callback();
+		})
+	}
 	factory.getUsers = function(callback){
 		$http({
 			method:"GET",
@@ -27,7 +35,6 @@ app.factory('userFactory', function($http){
 			url:"/current_user"
 		})
 		.then(function successCallback(res){
-			console.log("current user:" + res.data);
 			callback(res.data)
 		})
 	}

@@ -1,17 +1,62 @@
 body, html{
 	height: 100%;
+} 
+.events-div-background{
+	background-color: rgba(255, 252, 214, .7);
+	width: 100%;
+    height: 100%;
 }
-
+#events-background-photo{
+	background-image: url("/assets/images/beaches.jpg");
+	background-size: initial;
+	background-repeat: no-repeat;
+    background-position: center center; 
+    width: 100%;
+    height: 100%;
+}
 /*only let mobile views use site*/
-.mobile-only{
+.mobile-only, .desktop-only{
 	display: none;
 }
-.desktop-only{
-	display: none;
-	text-align: center;
+#desktop-only-header{
 	color: white;
 	background-color: #0066ff;
+	text-align: center;
+}
+#desktop-background{
+	background-color: rgba(0, 102, 255, 0.9);
+	width: 100%;
 	height: 100%;
+	position: relative;
+}
+.desktop-row{
+/*	width: 100%;*/
+	height: 100%;
+	padding: 3%;
+}
+.desktop-details, .desktop-screenshot{
+	text-align: center;
+	font-family: 'Didact Gothic', sans-serif;
+	margin-bottom: 10%;
+}
+.desktop-details h1{
+	font-size: 5em;
+	font-weight: bold;
+}
+#FBlogo{
+	height: 1.25em;
+	width: 1.25em;
+}
+.desktop-screenshot img{
+	height: 600px;
+	width: 298px;
+	margin-top: 5%;
+}
+.desktop-fb-div{
+	margin-top: 20%;
+}
+.desktop-mobile-only-div{
+	margin-top: 5%;
 }
 @media only screen and (max-device-width: 450px){
 	.mobile-only{display: block;}
@@ -22,7 +67,7 @@ body, html{
 
 #welcome-div{
 	background-image: url("/assets/images/poolparty.jpg");
-	background-size: ;
+	background-size: cover;
 	background-repeat: no-repeat;
     background-position: center center; 
     position: fixed;
@@ -80,7 +125,16 @@ body, html{
 .navbar-absolute-bottom{
 	background: linear-gradient(#0066ff, #0066cc);
 }
+.gold{
+	color: gold;
+}
+.active{
+	color: green;
+}
 
+#wdw-logo{
+	margin: 2% 0%;
+}
 .app{
 	background-color: white;
 	font-family: Arial, Helvetica, sans-serif;
@@ -93,6 +147,7 @@ body, html{
 }
 #create-new-event {
 	margin: 5% 0%;
+	background-color: #00cc00;
 }
 .event-image-div{
 	padding-right: 0%;
@@ -105,6 +160,8 @@ body, html{
 	border: 1px lightgrey solid;
 	border-radius: 3%;
 	padding: 5% 0%;
+	background-color: rgba(255, 255, 255, .8);
+	font-family: Tahoma, Geneva, sans-serif;
 }
 .event-image{
 	background-repeat: no-repeat;
@@ -120,16 +177,18 @@ body, html{
 	.title h4{
 		margin: 5% auto;
 		font-size: 1.4em;
+		font-family: Tahoma, Geneva, sans-serif;
 	}
 	.title p{
 		margin-bottom: 0%;
 		font-size: .75em;
+		font-family: Tahoma, Geneva, sans-serif;
 	}
 .details{
 	text-align: center;
 	font-size: .75em;
 }
-h5{
+.events-div-background h5{
 	border-bottom: black 1px solid;
 	margin: 1% auto;
 }
@@ -137,6 +196,18 @@ h5{
 /*show single event page*/
 .show-event-div{
 	padding: 2%;
+	background-color: rgba(255, 252, 214, .7);
+}
+.event-info{
+	height: 35%;
+	position: relative;
+}
+.show-event-title h3, .show-event-title h4{
+	background-color: white;
+	opacity: .85;
+	padding: 2%;
+	text-align: center;
+	margin: 5% auto;
 }
 .show-event-details{
 	background-image: url("/assets/images/tailgate_pic.jpg");
@@ -157,8 +228,11 @@ h5{
 
 #change-event-photo{
 	background-color: white;
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+	font-size: 1em;
 	font-weight: bold;
-	padding: 1%;
 }
 .show-event-items-div{
 	margin-top: 1%;
@@ -181,6 +255,9 @@ h5{
 	color: white;
 	background-color: #0066ff;
 	border: #0066ff solid 1px;
+}
+.show-event-item{
+	background-color: white;
 }
 .show-event-item-complete{
 	background-color: #e6f3ff;
@@ -299,13 +376,22 @@ h5{
 	background-color: #5bd75b;
 	margin-bottom: 5%;
 }
-#invite-friends-done-btn, #choose-event-img-done-btn{
+#invite-friends-done-btn, #choose-event-img-done-btn, #event-screen-invite-friends-btn{
 	color: white;
 	background-color: transparent;
 	border: none;
 	position:fixed;
-	top: 1.75%;
-	right:2%;
+	top: 2.5%;
+	right:1.5%;
+	z-index:1;
+}
+#event-screen-back-btn, #new-event-cancel-btn{
+	color: white;
+	background-color: transparent;
+	border: none;
+	position:fixed;
+	top: 2.5%;
+	left:1.5%;
 	z-index:1;
 }
 #invite-friend-search{
@@ -391,11 +477,23 @@ h5{
 }
 
 /* item screen */
+.item-screen-background{
+	background-image: url("/assets/images/festivalpic.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center center; 
+    width: 100%;
+    height: 100%;
+}
 .show-item-div{
 	text-align: center;
+	background-color: rgba(255, 252, 214, .7);
+	padding-top: 5%;
+	width: 100%;
+    height: 100%;
 }
-	.show-item-div h3{
-		margin: 5% 0%;
+	.show-item-div h4{
+		margin: 5% 0% 10% 0%;
 	}
 .show-item-assigned-users-div{
 	text-align: left;

@@ -33,6 +33,8 @@ app.factory('eventFactory', function($http){
 	}
 
 	factory.newEvent = function(event, callback){
+		event.image = "/assets/images/sunglassesemoji.png";
+		console.log(event.image);
 		$http({
 			method:"POST",
 			url:"/event",

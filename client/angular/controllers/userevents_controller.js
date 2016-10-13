@@ -1,8 +1,8 @@
 app.controller('usereventsController', ['$scope', '$location', '$routeParams', 'userFactory', function($scope, $location, $routeParams, userFactory){
-	userFactory.getUser($routeParams.uid, function(user){
+	userFactory.getCurrentUser(function(user){
 		$scope.user = user
 	})
-	userFactory.getUpcoming(function(events){
+	userFactory.getUpcoming(function(events){ 
 		$scope.user_events = events
 	})
 	userFactory.getUserItems(function(items){
@@ -36,5 +36,10 @@ app.controller('usereventsController', ['$scope', '$location', '$routeParams', '
 	}
 	$scope.getEvent = function(event_id){
 		$location.path("/event/"+event_id)
+	}
+	$scope.logout = function(){
+		userFactory.logout(function(){
+			$location.path("/");
+		});
 	}
 }])
