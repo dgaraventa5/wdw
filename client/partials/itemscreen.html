@@ -8,14 +8,14 @@
 				<p class="assigned-user" ng-repeat="user in item._users">
 					{{user.name}}
 					<img class="profile-pic show-item-profile-pic pull-left" ng-src="{{user.image}}">
-					<i ng-if="current_user == user" ng-click="removeMe(item._id)" class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
+					<i ng-if="current_user._id == user._id" ng-click="removeMe(item._id)" class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
 					<i ng-if="current_user._id == event._host._id" ng-click="removeUser(user, item._id)" class="fa fa-user-times fa-fw fa-lg assign-user pull-right remove-me-btn" aria-hidden="true"></i>
 				</p>
 			</div> 
 				<p ng-if="item._users.length > 0 && current_user._id == event._host._id" id="assign-another-user" class="assigned-to"><a href="#/item/assign/{{item._id}}">Edit Who's Doing This
 				<i class="fa fa-user-plus fa-fw fa-lg assign-user" aria-hidden="true"></i></a>
 				</p>
-				<p ng-if="item._users.length == 0" id="assign-another-user" class="assigned-to"><a href="#/events">Assign Someone
+				<p ng-if="item._users.length == 0 && current_user._id == event._host._id" id="assign-another-user" class="assigned-to"><a href="#/events">Assign Someone
 				<i class="fa fa-user-plus fa-fw fa-lg assign-user" aria-hidden="true"></i></a>
 				</p>
 			<div id="show-item-comments-div">

@@ -22,6 +22,9 @@ app.config(function($routeProvider, $httpProvider, $touchProvider){
 		templateUrl: 'partials/loginreg.html',
 		controller: 'loginRegController'
 	})
+	.when('/privacypolicy',{
+		templateUrl: 'partials/privacypolicy.html'
+	})
 	.when('/events',{
 		templateUrl: 'partials/userevents.html'
 	})

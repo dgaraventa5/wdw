@@ -103,6 +103,16 @@ body, html{
 	#welcome-overlay i{
 		margin: 0% 3% 0% 0%;
 	}
+#privacypolicy{
+	position: absolute;
+	bottom: 2%;
+	left: 37%;
+	text-align: center;
+}
+#privacypolicy a{
+	color: white;
+	text-decoration: underline;
+}
 .navbar{
 	color: white;
 	font-family: Arial, Helvetica, sans-serif;
