@@ -1,11 +1,11 @@
 app.factory('userFactory', function($http){
 	var factory = {}
 
-	factory.login = function(user, callback){
+	factory.login = function(callback){
 		$http({
-			method:"POST",
-			url:"/login",
-			data:user
+			method:"GET",
+			url:"/auth/facebook"
+			// data:user
 		})
 		.then(function successCallback(res){
 			callback()

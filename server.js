@@ -21,20 +21,37 @@ var sessionConfig = {
 		maxAge: 3600000
 	}
 }
+var passport = require("passport");
+var FacebookStrategy = require("passport-facebook").Strategy;
 
 // Create an Express App
 var app = express();
-
+// Setting our Static Folder Directory
+app.use(express.static(path.join(__dirname, './client')));
+//set up views
+app.set('views', __dirname + '/client/views');
+//set view engine
+app.set('view engine', 'ejs');
 // Integrate body-parser with our App
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Setting our Static Folder Directory
-app.use(express.static(path.join(__dirname, './client')));
+
 //Use session
 app.use(session(sessionConfig))
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(function(user, done){
+	done(null,user);
+});
+passport.deserializeUser(function(user, done){
+	done(null, user);
+});
 
 //Load models
 require('./server/config/mongoose.js')
+//load fb-auth
+require("./server/auth/fb_auth.js");
 
 //Connect to routes
 var routes_setter = require('./server/config/routes.js');

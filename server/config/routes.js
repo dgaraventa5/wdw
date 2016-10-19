@@ -1,10 +1,18 @@
 var users = require('../controllers/Users.js');
 var events = require('../controllers/Events.js');
 var items = require('../controllers/Items.js');
+var passport = require("passport");
+var FacebookStrategy = require("passport-facebook").Strategy;
 
 module.exports = function(app){
 	//Unprotected Routes
-	app.post('/login', users.login)
+	app.get('/auth/facebook', passport.authenticate("facebook"));
+	app.get('/auth/facebook/callback', passport.authenticate("facebook", {failureRedirect: '/'}), function(req, res){
+		console.log("in callback url");
+		req.session.current_user = req.session.passport.user;
+		res.render("app");
+	})
+
 
 	//MiddleWare
 	app.use(function(req, res, next){
