@@ -38,8 +38,6 @@ app.controller('usereventsController', ['$scope', '$location', '$routeParams', '
 		$location.path("/event/"+event_id)
 	}
 	$scope.logout = function(){
-		userFactory.logout(function(){
-			$location.path("/");
-		});
+		userFactory.logout();
 	}
 }])

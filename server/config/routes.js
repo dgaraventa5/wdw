@@ -5,12 +5,17 @@ var passport = require("passport");
 var FacebookStrategy = require("passport-facebook").Strategy;
 
 module.exports = function(app){
+	//render login
+	app.get("/", function(req, res) {
+		res.render("login");
+	})
+
 	//Unprotected Routes
 	app.get('/auth/facebook', passport.authenticate("facebook"));
 	app.get('/auth/facebook/callback', passport.authenticate("facebook", {failureRedirect: '/'}), function(req, res){
 		console.log("in callback url");
 		req.session.current_user = req.session.passport.user;
-		res.render("app");
+		res.redirect("/app");
 	})
 
 
@@ -22,6 +27,10 @@ module.exports = function(app){
 			res.sendStatus(401);
 		}
 	})
+	//load app ejs
+	app.get('/app', function(req,res){
+		res.render("app");
+	});
 
 	//Users Routes
 	app.get('/users', users.all)

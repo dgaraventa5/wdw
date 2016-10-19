@@ -7,7 +7,7 @@ app.config(function($routeProvider, $httpProvider, $touchProvider){
 			return{
 				'responseError':function(rejection){
 					if (rejection.status == 401) {
-						$location.url('/login');
+						$location.path('/login');
 					}
 					return $q.reject(rejection);
 				}

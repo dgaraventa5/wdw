@@ -115,6 +115,6 @@ module.exports = {
 	logout: function(req,res){
 		req.session.current_user = undefined;
 		console.log(req.session.current_user);
-		res.json(req.session.current_user);
+		res.redirect('/');
 	}
 }

@@ -16,9 +16,6 @@ app.factory('userFactory', function($http){
 			method:"GET",
 			url:"/logout"
 		})
-		.then(function successCallback(res){
-			callback();
-		})
 	}
 	factory.getUsers = function(callback){
 		$http({

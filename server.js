@@ -27,7 +27,7 @@ var FacebookStrategy = require("passport-facebook").Strategy;
 // Create an Express App
 var app = express();
 // Setting our Static Folder Directory
-app.use(express.static(path.join(__dirname, './client')));
+app.use(express.static(path.join(__dirname, './client/static')));
 //set up views
 app.set('views', __dirname + '/client/views');
 //set view engine
