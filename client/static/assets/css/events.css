@@ -39,8 +39,11 @@ body, html{
 	font-family: 'Didact Gothic', sans-serif;
 	margin-bottom: 10%;
 }
+.desktop-details{
+	margin-top: 3%;
+}
 .desktop-details h1{
-	font-size: 5em;
+	font-size: 7em;
 	font-weight: bold;
 }
 #FBlogo{
@@ -53,10 +56,10 @@ body, html{
 	margin-top: 5%;
 }
 .desktop-fb-div{
-	margin-top: 20%;
+	margin-top: 10%;
 }
 .desktop-mobile-only-div{
-	margin-top: 5%;
+	margin-top: 3%;
 }
 @media only screen and (max-device-width: 450px){
 	.mobile-only{display: block;}
