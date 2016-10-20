@@ -20,13 +20,13 @@ module.exports = function(app){
 
 
 	//MiddleWare
-	// app.use(function(req, res, next){
-	// 	if(req.session.current_user){
-	// 		next();
-	// 	}else{
-	// 		res.sendStatus(401);
-	// 	}
-	// })
+	app.use(function(req, res, next){
+		if(req.session.current_user){
+			next();
+		}else{
+			res.sendStatus(401);
+		}
+	})
 	//load app ejs
 	app.get('/app', function(req,res){
 		res.render("app");
