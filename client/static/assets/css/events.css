@@ -1,6 +1,21 @@
 body, html{
 	height: 100%;
 } 
+#close-btn-div{
+	position:fixed;
+	top: 2.5%;
+	left:1.5%;
+	z-index:1;
+}
+#privacy-policy-close-btn{
+	color: black;
+	background-color: transparent;
+	border: none;
+	position:fixed;
+	top: 1.5%;
+	right:1.5%;
+	z-index:1;
+}
 .events-div-background{
 	background-color: rgba(255, 252, 214, .7);
 	width: 100%;

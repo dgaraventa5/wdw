@@ -2,12 +2,15 @@ var users = require('../controllers/Users.js');
 var events = require('../controllers/Events.js');
 var items = require('../controllers/Items.js');
 var passport = require("passport");
-var FacebookStrategy = require("passport-facebook").Strategy;
+var FacebookStrategy = require("passport-facebook").Strategy; 
 
 module.exports = function(app){
 	//render login
 	app.get("/", function(req, res) {
 		res.render("login");
+	})
+	app.get("/privacypolicy", function(req, res){
+		res.render("privacypolicy");
 	})
 
 	//Unprotected Routes
