@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var UserSchema = new mongoose.Schema({
-	fbid: {type:String, required:true},
+	fbid: {type:String},
 	name: {type:String},
 	email: {type:String},
 	phone: {type:String},

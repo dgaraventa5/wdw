@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 
 // Connect to mongodb
-mongoose.connect('mongodb://0.0.0.0:8000/wdw');
+mongoose.connect('mongodb://localhost/wdw');
 
 // Gets the path for your models
 var models_path = path.join(__dirname, './../models');

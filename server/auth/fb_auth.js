@@ -6,10 +6,12 @@ var FacebookStrategy = require("passport-facebook").Strategy;
 passport.use(new FacebookStrategy({
 			clientID: "1655368091421394",
 			clientSecret: "8c1e07f799ee71ae118b0ec8edbd2490",
-			callbackURL: "http://whosdoingwhat.co/auth/facebook/callback"
+			callbackURL: "http://localhost:8000/auth/facebook/callback",
+			profileFields: ['id', 'displayName', 'picture']
 	},
 	function(accessToken, refreshToken, profile, done){
 		console.log("searching for user");
+		console.log(profile);
 		User.findOne({fbid: profile.id}, function(err, user){
 			if (err) {
 				console.log(err);
@@ -18,9 +20,9 @@ passport.use(new FacebookStrategy({
 			if (!user) {
 				console.log("new user")
 				var user = {
-					fbid: profile.uid,
+					fbid: profile.id,
 					name: profile.displayName,
-					image: profile.photoURL
+					image: profile.photos[0].value
 				}
 				var new_user = new User(user);
 				new_user.save(function(err, saved_user){
@@ -29,7 +31,6 @@ passport.use(new FacebookStrategy({
 						console.log(err);
 						return done(err, user);
 					}else{
-						req.session.current_user = saved_user
 						return done(err, user);	
 					}
 				});
