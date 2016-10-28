@@ -18,20 +18,25 @@
 				</div>
 			<!-- ng-repeat this div for friends-->
 				<div ng-repeat="user in users | filter:friendsFilter">
-					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!event._attendees.includes(user._id)" ng-click="addToAttendees(user._id)">
-						<p>
-							<img class="profile-pic" ng-src="{{user.image}}">
-							{{user.name}}
-							<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
-						</p>
+					<div>
+						<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!event._attendees.includes(user._id)" ng-click="addToAttendees(user._id)">
+							<p>
+								<img class="profile-pic" ng-src="{{user.image}}">
+								{{user.name}}
+								<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
+							</p>
+						</div>
+						<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="event._attendees.includes(user._id)" ng-click="removeFromAttendees(user._id)">
+							<p>
+								<img class="profile-pic" ng-src="{{user.image}}">
+								{{user.name}}
+								<i class="fa fa-times-circle fa-lg pull-right" aria-hidden="true"></i>
+							</p>
+						</div>
 					</div>
-					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="event._attendees.includes(user._id)" ng-click="removeFromAttendees(user._id)">
-						<p>
-							<img class="profile-pic" ng-src="{{user.image}}">
-							{{user.name}}
-							<i class="fa fa-times-circle fa-lg pull-right" aria-hidden="true"></i>
-						</p>
-					</div>
+				</div>
+				<div class="col-xs-10 col-xs-offset-1">
+					<p id="invite-friends-notice">Unfortunately Facebook only allows us access to your FB friends who have signed into our app. If you want to invite them to this event, tell them to log in at whosdoingwhat.co!</p>	
 				</div>
 				<button id='invite-friends-done-btn' ng-click="updateAttendees()">Done</button>
 			</div>

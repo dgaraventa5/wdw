@@ -7,6 +7,10 @@ body, html{
 	left:1.5%;
 	z-index:1;
 }
+.privacy-policy-page h3, .privacy-policy-page h4, .privacy-policy-page h5{
+	font-weight: bolder;
+	text-decoration: underline;
+}
 #privacy-policy-close-btn{
 	color: black;
 	background-color: transparent;
@@ -46,7 +50,7 @@ body, html{
 }
 .desktop-row{
 /*	width: 100%;*/
-	height: 100%;
+/*	height: 100%;*/
 	padding: 3%;
 }
 .desktop-details, .desktop-screenshot{
@@ -76,6 +80,34 @@ body, html{
 .desktop-mobile-only-div{
 	margin-top: 3%;
 }
+.desktop-product-overview{
+	background-color: white;
+	color: #0066ff;
+	text-align: center;
+	font-family: 'Didact Gothic', sans-serif;
+	padding-top: 5%;
+	border-bottom: .5px lightgrey solid;
+}
+	.desktop-product-overview h1{
+		font-family: 'Didact Gothic', sans-serif;
+		font-weight: bold;
+		font-size: 6em;
+		margin-top: 10%;
+	}
+.desktop-use-now{
+	background-color: #0066ff;
+	color: white;
+	text-align: center;
+}
+	.desktop-use-now h3{
+		margin: 3% 0%;
+	}
+.product-overview-details{
+	margin-top: 5%;
+}
+	.product-overview-details h1{
+		margin-bottom: 10%;
+	}
 @media only screen and (max-device-width: 450px){
 	.mobile-only{display: block;}
 }
@@ -121,11 +153,13 @@ body, html{
 	#welcome-overlay i{
 		margin: 0% 3% 0% 0%;
 	}
-#privacypolicy{
-	position: absolute;
+#privacypolicy{ 
+/*	position: absolute;
 	bottom: 2%;
-	left: 37%;
+	left: 37%;*/
+	margin-top: 15%;
 	text-align: center;
+	color: white;
 }
 #privacypolicy a{
 	color: white;
@@ -220,7 +254,15 @@ body, html{
 	border-bottom: black 1px solid;
 	margin: 1% auto;
 }
-
+#no-events-div{
+	margin-top: 10%;
+	text-align: center;
+}
+#no-events-crying{
+	height: 64px;
+	width: 64px;
+	margin-bottom: 5%;
+}
 /*show single event page*/
 .show-event-div{
 	padding: 2%;
@@ -356,6 +398,11 @@ body, html{
 	margin: 1em 0em;
 	
 }
+#invite-friends-notice{
+	font-style: italic; 
+	text-align: center; 
+	margin-top: 10%;
+}
 #new-event-warning{
 	margin-top: 2em;
 	text-align: center;
@@ -467,7 +514,10 @@ body, html{
 	width: 2.5em;
 	height: 2.5em;
 }
-
+.no-items-to-do{
+	text-align: center;
+	margin-top: 10%;
+}
 /*choose photo*/
 .event-pics-div{
 	margin-top: 5%;

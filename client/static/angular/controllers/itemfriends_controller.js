@@ -4,10 +4,7 @@ app.controller('itemfriendsController', ['$scope', '$location', '$routeParams', 
 		eventFactory.getAttendees($scope.item._event, function(attendees){
 			$scope.attendees = attendees
 		})
-		// for (var i=0; i<$scope.item._users.length; i++){
-		// 	console.log($scope.item._users[i].name);
-		// }
-	})
+	}) 
 	
 	$scope.userAssigned = function(user, item_users){
 		for (var i = 0; i < item_users.length; i++){

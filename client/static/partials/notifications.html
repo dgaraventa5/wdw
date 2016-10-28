@@ -12,20 +12,32 @@
  
 		  <div ui-if="activeTab == 1">
 		    <div class="row">
-		    	<div class="col-xs-12 all-items">
+		    	<div ng-if="all-items.length > 0" class="col-xs-12 all-items">
 		    		<div class="notif-item" ng-repeat="item in all_items" ng-click="getEvent(item._event)">
 		    			<p ng-if="item._users.length == 0"><img id="notif-no-assigned-user" class="notif-profile-pic pull-left" src="/assets/images/sunglassesemoji.png">{{item.description}} was added to an event list. Want to volunteer? <a href="#/event/{{item._event}}">Go to event page.</a></p>
 		    			<p ng-if="item._users.length > 0"><img class="notif-profile-pic pull-left" ng-src="{{item._users[0].image}}">{{item._users[0].name}} was assigned to bring {{item.description}}.</p>
 		    		</div>
 		    	</div>
+		    	<div ng-if="all-items.length == 0" class="col-xs-12 all-items no-items-to-do">
+		    		<p>It's hard to have any tasks to complete if you aren't planning any events!
+		    		<a href="#/newevent">Create an new event.</a></p>
+		    	</div>
 		    </div>
 		  </div>
 		  <div ui-if="activeTab == 2">
 		  	<div class="row">
-		    	<div class="col-xs-12 user-items">
+		    	<div ng-if="user_items.length > 0" class="col-xs-12 user-items">
 		    		<div class="notif-item" ng-repeat="item in user_items" ng-click="getEvent(item._event)">
 		    			<p><img class="notif-profile-pic pull-left" ng-src="{{item._users[0].image}}">You were assigned to bring {{item.description}}.</p>
 		    		</div>
+		    	</div>
+		    	<div ng-if="user_items.length == 0 && item._users.length > 0" class="col-xs-12 all-items no-items-to-do">
+		    		<p>Looks like you aren't assigned to any tasks!
+		    		<a href="#/events">Choose an event and volunteer to help.</a></p>
+		    	</div>
+		    	<div ng-if="user_items.length == 0 && item._users.length == 0" class="col-xs-12 all-items no-items-to-do">
+		    		<p>It's hard to have any tasks to complete if you aren't planning any events!
+		    		<a href="#/newevent">Create an new event.</a></p>
 		    	</div>
 		    </div>
 		  </div>

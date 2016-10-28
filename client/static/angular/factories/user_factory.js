@@ -1,6 +1,8 @@
 app.factory('userFactory', function($http){
 	var factory = {}
 
+	var	access_token = "1655368091421394|MYn3VMKugOPATPVA2JRYxngya0I";
+
 	factory.login = function(callback){
 		$http({
 			method:"GET",
@@ -22,6 +24,15 @@ app.factory('userFactory', function($http){
 			method:"GET",
 			url: '/users'
 		})
+		.then(function successCallback(res){
+			callback(res.data)
+		})
+	}
+	factory.getUserFriends = function(user_id, callback){
+		$http({
+			method:"GET",
+			url: 'https://graph.facebook.com/' + user_id + "/friends?access_token=" + access_token + ""
+		})	
 		.then(function successCallback(res){
 			callback(res.data)
 		})
