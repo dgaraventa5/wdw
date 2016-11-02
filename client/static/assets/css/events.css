@@ -31,7 +31,7 @@ body, html{
 	background-repeat: no-repeat;
     background-position: center center; 
     width: 100%;
-    height: 100%;
+    height: 100%; 
 }
 /*only let mobile views use site*/
 .mobile-only, .desktop-only{
@@ -457,8 +457,8 @@ body, html{
 	border: none;
 	position:fixed;
 	top: 2.5%;
-	right:1.5%;
-	z-index:1;
+	right:2.5%;
+	z-index: 1;
 }
 #event-screen-back-btn, #new-event-cancel-btn{
 	color: white;
@@ -466,8 +466,8 @@ body, html{
 	border: none;
 	position:fixed;
 	top: 2.5%;
-	left:1.5%;
-	z-index:1;
+	left:2.5%;
+	z-index: 1;
 }
 #invite-friend-search{
 	border: 1px lightgrey solid;
