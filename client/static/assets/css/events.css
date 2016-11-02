@@ -451,14 +451,14 @@ body, html{
 	background-color: #5bd75b;
 	margin-bottom: 5%;
 }
-#invite-friends-done-btn, #choose-event-img-done-btn i, #event-screen-invite-friends-btn i, #user-events-logout{
+#invite-friends-done-btn, #choose-event-img-done-btn, #event-screen-invite-friends-btn i, #user-events-logout{
 	color: white;
 	background-color: transparent;
 	border: none;
 	position:fixed;
 	top: 2.5%;
 	right:2.5%;
-	z-index: 1;
+	z-index: 5;
 }
 #event-screen-back-btn i, #new-event-cancel-btn{
 	color: white;
@@ -467,7 +467,7 @@ body, html{
 	position:fixed;
 	top: 2.5%;
 	left:2.5%;
-	z-index: 1;
+	z-index: 5;
 }
 #invite-friend-search{
 	border: 1px lightgrey solid;
