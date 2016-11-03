@@ -1,41 +1,43 @@
 <div class="scrollable" ng-controller="itemfriendsController">
-	<div class="scrollable-content show-event-div">				
-		<div class="friends-list-div">
-			<div class="row">
-			<!--search for friend-->
-				<div class="col-xs-10 col-xs-offset-1 new-event-item">
-					<div class="input-group">
-				      <input type="text" class="form-control" id="invite-friend-search" placeholder="Search for friend..." ng-model="friendsFilter">
-				    </div>
-				</div>
-				<div class="col-xs-10 col-xs-offset-1">
-					<p id="friends-header">Assign Attendees</p>
-				</div>
-				<!-- invite all friends button -->
-				<div class="col-xs-8 col-xs-offset-2">
-					<button ng-if="item._users.length < attendees.length" ng-click="assignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Assign All Attendees</button>
-					<button ng-if="item._users.length == attendees.length" ng-click="unassignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Unassign All Attendees</button>
-				</div>
-			<!-- ng-repeat this div for friends-->
-				<div ng-repeat="user in attendees |filter:friendsFilter">
-					<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!userAssigned(user, item._users)" ng-click="addToUsers(user)">
-						<p>
-							<img class="profile-pic" ng-src="{{user.image}}">
-							{{user.name}}
-							<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
-						</p>
+	<div class="scrollable-content show-event-div">
+		<div class="container">
+			<button id='invite-friends-done-btn' ng-click="updateUsers()">Done</button>
+			<div class="friends-list-div">
+				<div class="row">
+				<!--search for friend-->
+					<div class="col-xs-10 col-xs-offset-1 new-event-item">
+						<div class="input-group">
+					      <input type="text" class="form-control" id="invite-friend-search" placeholder="Search for friend..." ng-model="friendsFilter">
+					    </div>
 					</div>
-					<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="userAssigned(user, item._users)" ng-click="removeFromUsers(user)">
-						<p>
-							{{user.id}}
-							<img class="profile-pic" ng-src="{{user.image}}">
-							{{user.name}}
-							<i class="fa fa-times-circle fa-lg pull-right" aria-hidden="true"></i>
-						</p>
+					<div class="col-xs-10 col-xs-offset-1">
+						<p id="friends-header">Assign Attendees</p>
+					</div>
+					<!-- invite all friends button -->
+					<div class="col-xs-8 col-xs-offset-2">
+						<button ng-if="item._users.length < attendees.length" ng-click="assignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Assign All Attendees</button>
+						<button ng-if="item._users.length == attendees.length" ng-click="unassignAllFriends()" type="button" id="invite-all-friends" class="btn btn-block">Unassign All Attendees</button>
+					</div>
+				<!-- ng-repeat this div for friends-->
+					<div ng-repeat="user in attendees |filter:friendsFilter">
+						<div class="col-xs-10 col-xs-offset-1 invite-friend-div" ng-if="!userAssigned(user, item._users)" ng-click="addToUsers(user)">
+							<p>
+								<img class="profile-pic" ng-src="{{user.image}}">
+								{{user.name}}
+								<i class="fa fa-plus-circle fa-lg pull-right" aria-hidden="true"></i>
+							</p>
+						</div>
+						<div class="col-xs-10 col-xs-offset-1 attendees-div" ng-if="userAssigned(user, item._users)" ng-click="removeFromUsers(user)">
+							<p>
+								{{user.id}}
+								<img class="profile-pic" ng-src="{{user.image}}">
+								{{user.name}}
+								<i class="fa fa-times-circle fa-lg pull-right" aria-hidden="true"></i>
+							</p>
+						</div>
 					</div>
 				</div>
-				<button id='invite-friends-done-btn' ng-click="updateUsers()">Done</button>
 			</div>
-		</div>
+		</div>				
 	</div>
 </div>
