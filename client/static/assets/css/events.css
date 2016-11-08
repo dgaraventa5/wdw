@@ -469,6 +469,9 @@ body, html{
 	left:2.5%;
 	z-index: 5;
 }
+.event-pics-contain-div{
+	z-index: 1;
+}
 #invite-friend-search{
 	border: 1px lightgrey solid;
 	border-radius: 3%;
