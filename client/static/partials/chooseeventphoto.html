@@ -1,16 +1,18 @@
 <div ng-controller="chooseEventPhotoController" class="scrollable">
-	<div class="scrollable-content container">
-		<h5>Choose a Photo</h5>
-		<div class="event-pics-div row">
-			<div ng-repeat='image in images'>
-				<div class="choose-event-pic-div col-xs-10 col-xs-offset-1" ng-if='image.url != chosen_image'>
-					<img class="img-rounded" ng-src="{{image.url}}" ng-click="selectPhoto(image.name)">
+	<div class="scrollable-content">
+		<div class="container">
+			<h5>Choose a Photo</h5>
+			<div class="event-pics-div row">
+				<div ng-repeat='image in images'>
+					<div class="choose-event-pic-div col-xs-10 col-xs-offset-1" ng-if='image.url != chosen_image'>
+						<img class="img-rounded" ng-src="{{image.url}}" ng-click="selectPhoto(image.name)">
+					</div>
+					<div class="choose-event-pic-div chosen-pic-div col-xs-10 col-xs-offset-1" ng-if='image.url == chosen_image'>
+						<img class="img-rounded" ng-src="{{image.url}}" ng-click="selectPhoto(image.name)">
+					</div>
 				</div>
-				<div class="choose-event-pic-div chosen-pic-div col-xs-10 col-xs-offset-1" ng-if='image.url == chosen_image'>
-					<img class="img-rounded" ng-src="{{image.url}}" ng-click="selectPhoto(image.name)">
-				</div>
+				<button id='choose-event-img-done-btn' ng-click="updateImage()">Done</button>
 			</div>
-			<button id='choose-event-img-done-btn' ng-click="updateImage()">Done</button>
 		</div>
 	</div>
 </div>
